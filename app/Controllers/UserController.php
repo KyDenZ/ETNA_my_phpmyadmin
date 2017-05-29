@@ -9,6 +9,7 @@ class UserController extends Controller
     public function index()
     {
         echo "Hello User Page!";
+        $this->list();
     }
 
     public function create($params)
@@ -33,10 +34,12 @@ class UserController extends Controller
         $userMapper = spot()->mapper('Models\Users');
         $userMapper->migrate();
         $userList = $userMapper->all();
-        echo "List: <br />";
-        foreach ($userList as $user) {
-            echo $user->name . "<br />";
-        }
-        echo "---";
+
+        echo $this->twig->render('user.html',
+        [
+        "userList" => $userList,
+        "quantity" => count($userList)
+        ]
+        );
     }
 }
