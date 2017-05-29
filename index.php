@@ -1,6 +1,3 @@
-<?php
-require '../vendor/vendor.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,9 +19,7 @@ require '../vendor/vendor.php';
   </head>
   <body>
     <h1>Hello, world!</h1>
-    <?php 
-    var_dump(new A());
-    ?>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
