@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controllers;
 
 use Models\Users;
 
@@ -18,7 +18,7 @@ class UserController extends Controller
         } else {
             $name = $params['name'];
         }
-        $userMapper = spot()->mapper('model\Users');
+        $userMapper = spot()->mapper('Models\Users');
         $userMapper->migrate();
         $myNewUser = $userMapper->create([
         'name'      => $name,
@@ -30,7 +30,7 @@ class UserController extends Controller
 
     public function list()
     {
-        $userMapper = spot()->mapper('model\Users');
+        $userMapper = spot()->mapper('Models\Users');
         $userMapper->migrate();
         $userList = $userMapper->all();
         echo "List: <br />";

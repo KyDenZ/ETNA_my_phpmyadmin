@@ -19,9 +19,8 @@ function spot() {
 
     return $spot;
 }
-//
 
-$class = "controller\\" . (isset($_GET['c']) ? ucfirst($_GET['c']) . 'Controller' : 'IndexController');
+$class = "Controllers\\" . (isset($_GET['c']) ? ucfirst($_GET['c']) . 'Controller' : 'IndexController');
 $target = isset($_GET['t']) ? $_GET['t'] : "index";
 $getParams = isset($_GET['params']) ? $_GET['params'] : null;
 $postParams = isset($_POST['params']) ? $_POST['params'] : null;
@@ -29,6 +28,8 @@ $params = [
     "get"  => $getParams,
     "post" => $postParams
 ];
+
+var_dump($class);
 
 if (class_exists($class, true)) {
     $class = new $class();
