@@ -4,16 +4,28 @@ namespace Models;
 
 class Users
 {
-    protected static $table = 'users';
+    public $id;
+    public $login;
+    public $password;
 
-    public static function fields()
+    private function __construct()
     {
-      return [
-        'id'        => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
-        'name'      => ['type' => 'string', 'required' => true, 'unique' => true],
-        'email'     => ['type' => 'string', 'required' => true],
-        'password'  => ['type' => 'string', 'required' => true],
-        'admin'     => ['type' => 'boolean', 'default' => false, 'value' => false]
-      ];
+    }
+
+    public function Login($login, $password)
+    {
+      $hash_password = hash('sha256', $password); //Password encryption
+      return 1;
+        // if (!is_null($login) && !is_null($password)) {
+        //     $bdd = Bdd::getInstance();
+        //     $bdd->preparation('SELECT * FROM `users` WHERE "login" = "'.$login.'" AND password = ' . $password .'');
+        //     $bdd->execution();
+        //     $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+        //     if ($result >= 1) {
+        //         return true;
+        //     }
+        // } else {
+        //   return false;
+        }
     }
 }
