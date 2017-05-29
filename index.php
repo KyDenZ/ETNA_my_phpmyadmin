@@ -23,7 +23,7 @@ require '../vendor/vendor.php';
   <body>
     <h1>Hello, world!</h1>
     <?php 
-    new A();
+    var_dump(new A());
     ?>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
