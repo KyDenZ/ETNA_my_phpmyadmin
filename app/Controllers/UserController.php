@@ -35,11 +35,13 @@ class UserController extends Controller
         // $userMapper->migrate();
         // $userList = $userMapper->all();
 
-        // echo $this->twig->render('user.html',
-        // [
-        // "userList" => $userList,
-        // "quantity" => count($userList)
-        // ]
-        // );
+        $userList = null;
+
+        echo $this->twig->render('user.html',
+        [
+        "userList" => $userList,
+        "quantity" => count($userList)
+        ]
+        );
     }
 }

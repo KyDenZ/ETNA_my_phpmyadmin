@@ -13,7 +13,7 @@ class Controller
     {
       $className = substr(get_class($this), 12, -10);
       // Twig Configuration
-      $loader = new Twig_Loader_Filesystem('./app/Views/' . strtolower($className));
+      $loader = new Twig_Loader_Filesystem('./app/Views/');
       $this->twig = new Twig_Environment($loader, array(
           'cache' => false,
       ));
