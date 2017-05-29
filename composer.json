@@ -1,0 +1,16 @@
+{
+    "name": "wk_ky/etna_my_phpmyadmin",
+    "authors": [{
+        "name": "KyDenZ",
+        "email": "wk_kydenz@live.fr"
+    }],
+    "require": {
+        "twbs/bootstrap": "3.3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src",
+            "Umanit\\": "dep/"
+        }
+    }
+}
