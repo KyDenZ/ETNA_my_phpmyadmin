@@ -5,11 +5,15 @@
         "email": "wk_kydenz@live.fr"
     }],
     "require": {
-        "twbs/bootstrap": "3.3.7"
+        "twbs/bootstrap": "3.3.7",
+        "twig/twig": "^2.3",
+        "vlucas/spot2": "^2.2"
     },
     "autoload": {
         "psr-4": {
-            "MyApp\\": ["src/"]
+            "view\\": "app/view/",
+            "controller\\": "app/controller/",
+            "model\\": "app/model/"
         }
     }
 }
