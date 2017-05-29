@@ -1,6 +1,7 @@
 <?php
 
 require_once "vendor/autoload.php";
+include "./config/config.php";
 
 $class = "Controllers\\" . (isset($_GET['c']) ? ucfirst($_GET['c']) . 'Controller' : 'IndexController');
 $target = isset($_GET['t']) ? $_GET['t'] : "index";
@@ -27,6 +28,7 @@ $page = (isset($_GET['c']) ? ucfirst($_GET['c']) : "My_phpmyAdmin");
     <link href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="./assets/css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +38,8 @@ $page = (isset($_GET['c']) ? ucfirst($_GET['c']) : "My_phpmyAdmin");
     <![endif]-->
   </head>
   <body>
-      <div id="wrapper" class="toggled">
+      <!--<div id="wrapper" class="toggled">-->
+      <div id="wrapper">
 
        <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -62,8 +65,7 @@ $page = (isset($_GET['c']) ? ucfirst($_GET['c']) : "My_phpmyAdmin");
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-            <a class="navbar-brand" href="#">Data API</a>
+            <a class="navbar-brand" id="menu-toggle" href="#">Data API</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
