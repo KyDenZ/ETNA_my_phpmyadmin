@@ -6,8 +6,7 @@
     }],
     "require": {
         "twbs/bootstrap": "3.3.7",
-        "twig/twig": "^2.3",
-        "vlucas/spot2": "^2.2"
+        "twig/twig": "^2.3"
     },
     "autoload": {
         "psr-4": {

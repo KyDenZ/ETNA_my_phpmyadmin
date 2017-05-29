@@ -2,24 +2,6 @@
 
 require_once "vendor/autoload.php";
 
-// Spot2 ORM Configuration
-function spot() {
-    static $spot;
-    if ($spot === null) {
-      $cfg = new \Spot\Config();
-      $cfg->addConnection('mysql', [
-          'dbname' => 'my_phpmyadmin',
-          'user' => 'root',
-          'password' => '',
-          'host' => 'localhost',
-          'driver' => 'pdo_mysql',
-      ]);
-      $spot = new \Spot\Locator($cfg);
-    }
-
-    return $spot;
-}
-
 $class = "Controllers\\" . (isset($_GET['c']) ? ucfirst($_GET['c']) . 'Controller' : 'IndexController');
 $target = isset($_GET['t']) ? $_GET['t'] : "index";
 $getParams = isset($_GET['params']) ? $_GET['params'] : null;

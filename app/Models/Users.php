@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Users extends \Spot\Entity
+class Users
 {
     protected static $table = 'users';
 
