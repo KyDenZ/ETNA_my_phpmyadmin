@@ -1,6 +1,7 @@
 <?php
 
 namespace Models;
+use \PDO;
 
 class Bdd
 {
