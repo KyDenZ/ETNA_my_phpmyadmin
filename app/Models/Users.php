@@ -16,9 +16,10 @@ class Users
     {
         if (!is_null($login) && !is_null($password)) {
             $bdd = Bdd::getInstance();
-            $bdd->preparation('SELECT * FROM `users` WHERE "login" = "'.$login.'" AND password = "'.md5('root'));
+            $bdd->preparation('SELECT * FROM `users` WHERE "login" = "root" AND password = "'.md5('root'));
             $bdd->execution();
             $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+            var_dump($result);
             if ($result >= 1) {
                 return true;
             }
