@@ -1,6 +1,7 @@
 <?php
 
 namespace Controllers;
+use Models\Users;
 
 class IndexController extends Controller
 {
@@ -14,8 +15,10 @@ class IndexController extends Controller
 
     public function checkLogin()
     {
-        //$userClass = new Users();
-        //$uid = $userClass->Login($_POST["login"], $_POST["password"]);
-        //var_dump($uid);
+        $userClass = new Users();
+        $login = isset($_POST["login"]) ? $_POST["login"] : NULL;
+        $password = isset($_POST["password"]) ? $_POST["password"] : NULL;
+        $uid = $userClass->Login($login, $password);
+        var_dump($uid);
     }
 }
