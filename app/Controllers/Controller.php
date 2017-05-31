@@ -23,5 +23,6 @@ class Controller
             'autoescape' => true
         );
         $this->twig = new Twig_Environment($loader, $params);
+        $this->twig->addGlobal('session', $_SESSION);
     }
 }

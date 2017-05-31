@@ -1,10 +1,13 @@
+{% extends "layout.html.twig" %}
+{% block container %}
+
 <div class="col-md-4 col-sm-12 center col-md-offset-4" style="margin-top: 250px">
     <div class="content-box">
         <div class="content">
             <div class="text-center">
                 <img class="logo-login" src="../../assets/img/logo.png">
             </div>
-            <form class="form-login" method="POST">
+            <form class="form-login" method="POST" action="/login">
                 <div class="form-group">
                     <input type="text" class="form-control" name="login" placeholder="login">
                 </div>
@@ -24,3 +27,5 @@
         </div>
     </div>
 </div>
+
+{% endblock %}

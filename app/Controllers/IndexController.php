@@ -10,7 +10,11 @@ class IndexController extends Controller
 
     public function index()
     {
-        $this->twig->display('index.html.twig');
+        if (isset($_SESSION["id_user"])) {
+            $this->twig->display('index.html.twig');
+        } else {
+            $this->twig->display('login.html.twig');
+        }
     }
 
     public function checkLogin()
@@ -24,6 +28,20 @@ class IndexController extends Controller
             header('Location: /');
         } else {
             $this->array = ["error" => "true"];
+            $this->twig->display('login.html.twig', $this->array);
+        }
+    }
+
+    public function login()
+    {
+        if (isset($_POST['login-submit']) && !empty($_POST["login"])) {
+            $this->checkLogin();
+        } else {
+            if (isset($_SESSION["id_user"])) {
+                $this->twig->display('index.html.twig');
+            } else {
+                $this->twig->display('login.html.twig');
+            }
         }
     }
 }

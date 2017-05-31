@@ -8,7 +8,6 @@ class LogoutController extends Controller
 {
     public function index()
     {
-        echo "oj";
         $this->logout();
     }
 
