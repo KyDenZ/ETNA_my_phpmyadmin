@@ -1,0 +1,4 @@
+base_path: /
+
+routes:
+  index: [/index, IndexController.index, GET]

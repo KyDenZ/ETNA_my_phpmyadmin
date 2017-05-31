@@ -9,14 +9,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        if (isset($_POST['login-submit']) && !empty($_POST["login"])) {
-            $this->checkLogin();
-        } else {
-            if (isset($_SESSION["id_user"]))
-                echo $this->twig->render('index.html', $this->array);
-            else
-                echo $this->twig->render('login.html', $this->array);
-        }
+        echo "ok";
     }
 
     public function checkLogin()
