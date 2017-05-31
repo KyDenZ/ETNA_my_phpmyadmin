@@ -9,7 +9,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        if (isset($_POST['login-submit'])) {
+        if (isset($_POST['login-submit']) && !empty($_POST["login"])) {
             $this->checkLogin();
         } else {
             if (isset($_SESSION["id_user"]))
