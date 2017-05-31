@@ -82,3 +82,157 @@ nav.navbar {
     color: #fff;
     padding: 10px;
 }
+
+.container-content {
+    padding: 20px;
+}
+
+.content-box .content-title {
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: -webkit-calc(100% - 100px);
+    width: calc(100% - 100px);
+    overflow: hidden;
+    line-height: 50px;
+    /*color: #fff;*/
+    padding-left:  10px;
+}
+
+.warning-bg {
+    background: #ffbb33 !important;
+}
+
+.content-box {
+    position: relative;
+    padding: 0;
+    margin-bottom: 20px;
+    background: #fff;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 2px 0px #dadada;
+    box-shadow: 0px 1px 2px 0px #dadada;
+}
+
+.white {
+    color: #fff !important;
+}
+
+.success-bg {
+    background: #59ba1f !important;
+}
+
+.danger-bg {
+    background: #f44336 !important;
+}
+
+.info-bg {
+    background: #49ceff !important;
+}
+
+select {
+    border: 1px solid #eee !important;
+    border-radius: 0px !important;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0) !important;
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0) !important;
+    -o-box-shadow: 0 5px 15px rgba(0,0,0,0) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0) !important;
+}
+
+.content-title {
+    width: 100%;
+}
+
+.content-title {
+    max-height: 30px;
+}
+
+p {
+    font-size: 40px;
+}
+
+.content-box {
+    margin-bottom: 10px;
+}
+.data-info .dataTables_wrapper {
+    background: #49ceff;
+    color: #fff;
+}
+
+thead > tr > th {
+    color: #fff;
+}
+
+.data-info .dataTables_wrapper tr {
+    color: #333;
+}
+
+.dataTables_wrapper {
+    -webkit-box-shadow: 0px 1px 2px 0px #dadada;
+    box-shadow: 0px 1px 2px 0px #dadada;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    zoom: 1;
+}
+
+.toolbar {
+    float: left;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    padding: 3px 10px;
+}
+
+table.display {
+    border-bottom: 0 !important;
+    width: 100% !important;
+}
+
+table.dataTable {
+    width: 100%;
+    margin: 0 auto;
+    clear: both;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.data-info thead tr {
+    background: #3cb6e3 !important;
+}
+
+table.display tbody tr, table.display tbody tr td {
+    background: #fff !important;
+    font-weight: 500;
+}
+
+.zero-m {
+    font-weight: 600;
+}
+
+.btn-options {
+    font-size: 23px;
+}
+
+.no-button {
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    margin: 0px 8px;
+}
+
+.text-medium {
+    font-size: 12px;
+}
+
+.size-title {
+    font-size: 20px;
+    font-weight: 300;
+}

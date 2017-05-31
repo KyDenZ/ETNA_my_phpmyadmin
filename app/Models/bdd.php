@@ -2,6 +2,8 @@
 
 namespace Models;
 
+use \PDO;
+
 class Bdd
 {
     private static $connect = null;
@@ -46,14 +48,19 @@ class Bdd
         return $query;
     }
 
-    public function execution($query, $tab)
+    public function execution($query)
     {
-        $req = $query->execute($tab);
+        $req = $query->execute();
         return $req;
     }
  
     public function dernierIndex()
     {
         return $this->bdd->lastInsertId();
+    }
+
+    public function fetchData($sth)
+    {
+         return $sth->fetch();
     }
 }
