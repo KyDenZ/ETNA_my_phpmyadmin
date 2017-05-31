@@ -12,19 +12,17 @@ class Users
     {
     }
 
-    public function Login($login, $password)
+    public function Login(string $login, string $password): int
     {
         if (!is_null($login) && !is_null($password)) {
             $bdd = Bdd::getInstance();
-            $bdd->preparation('SELECT * FROM `users` WHERE "login" = "'.$login.'" AND password = "'.md5($password));
-            $bdd->execution();
-            $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
-            var_dump($result);
-            if ($result >= 1) {
-                return true;
-            }
-        } else {
-            return false;
+            $stmt = $bdd->preparation('SELECT * FROM `users` WHERE `login` = "'.$login.'" AND password = "'.md5($password).'"');
+            $bdd->execution($stmt);
+            $result = $bdd->fetchData($stmt);
+            if ($result == null)
+                return 0;
+            return $result["id"];
         }
     }
 }
+

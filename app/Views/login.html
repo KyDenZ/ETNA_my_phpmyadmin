@@ -15,6 +15,12 @@
                     <input type="submit" class="submit-login" name="login-submit" value="Login">
                 </div>
             </form>
+            {% if error == "true" %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Erreur !</strong> Identifiant inconnu
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -60,23 +60,26 @@ $page = (isset($_GET['c']) ? ucfirst($_GET['c']) : "My_phpmyAdmin");
                 </li>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
+          <!-- /#sidebar-wrapper -->
 
   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+      <?php if (isset($_SESSION["id_user"])) { ?>
+      <ul class="nav navbar-nav navbar-left">
+          <li><a id="menu-toggle" style="cursor: pointer"><i class="zmdi zmdi-menu" style="font-size: 20px"></i></a></li>
+      </ul>
+      <?php } ?>
+      <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" id="menu-toggle" href="#">Data API</a>
+            <a class="navbar-brand" href="#">Data API</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <!--                <li class="active">Results for -->
                 <?php //echo count($results); ?><!-- tweets</li>-->
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <!--                <li><a href="../navbar/">Default</a></li>-->
-                <!--                <li><a href="../navbar-static-top/">Static top</a></li>-->
-                <!--                <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>-->
-            </ul>
+            <?php if (isset($_SESSION["id_user"])) { ?><ul class="nav navbar-nav navbar-right">
+                <li><a href="?c=logout">Deconnexion</a></li>
+            </ul> <?php } ?>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
@@ -85,7 +88,7 @@ $page = (isset($_GET['c']) ? ucfirst($_GET['c']) : "My_phpmyAdmin");
 
 if (class_exists($class, true)) {
     $class = new $class();
-    if (in_array($target, get_class_methods($class))) {
+    if (in_array($target, get_class_methods($class)) && isset($_SESSION["id_user"])) {
         call_user_func_array([$class, $target], $params);
     } else {
         call_user_func([$class, "index"]);
