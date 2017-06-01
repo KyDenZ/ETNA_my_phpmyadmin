@@ -11,7 +11,16 @@ class IndexController extends Controller
     public function index()
     {
         if (isset($_SESSION["id_user"])) {
-            $this->twig->display('index.html.twig');
+            $versionphp = phpversion();
+            // $versionapache = apache_get_version();
+            $link = mysql_connect('localhost', 'root', 'root');
+                if (!$link) {
+                    die('Impossible de se connecter à la base : ' . mysql_error());
+                }
+            $versionmysql = mysql_get_server_info();
+            var_dump($versionmysql);
+            $this->twig->display('index.html.twig', array("php_version" =>$versionphp), 
+            array("mysql_version" =>$versionmysql, array("apache_version" =>$versionapache)));
         } else {
             $this->twig->display('login.html.twig');
         }
@@ -28,6 +37,7 @@ class IndexController extends Controller
             header('Location: /');
         } else {
             $this->array = ["error" => "true"];
+            
             $this->twig->display('login.html.twig', $this->array);
         }
     }
@@ -38,10 +48,13 @@ class IndexController extends Controller
             $this->checkLogin();
         } else {
             if (isset($_SESSION["id_user"])) {
+                var_dump(phpversion());
+                echo 'Version PHP courante : ' . phpversion();
                 $this->twig->display('index.html.twig');
             } else {
                 $this->twig->display('login.html.twig');
             }
         }
     }
+
 }
