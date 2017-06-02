@@ -3,64 +3,29 @@
 namespace Models;
 
 use \PDO;
-
-class Bdd
+ 
+class Bdd extends PDO
 {
-    private static $connect = null;
-    private $bdd;
  
-    private function __construct()
+    private static $_instance;
+ 
+    public function __construct()
     {
-        $strBddServeur = DB_SERVER;
-        $strBddLogin = DB_USERNAME;
-        $strBddPassword = DB_PASSWORD;
-        $strBddBase = DB_DATABASE;
-             
-        try {
-            $this->bdd = new PDO('mysql:host='.$strBddServeur.';dbname='.$strBddBase, $strBddLogin, $strBddPassword, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-            $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (Exception $e) {
-            die('Erreur : '.$e->getMessage());
-        }
     }
- 
+
     public static function getInstance()
     {
-        if (is_null(self::$connect)) {
-            self::$connect = new Bdd();
+        if (!isset(self::$_instance)) {
+            $strBddServeur = DB_SERVER;
+            $strBddLogin = DB_USERNAME;
+            $strBddPassword = DB_PASSWORD;
+            $strBddBase = DB_DATABASE;
+            try {
+                self::$_instance = new PDO('mysql:host='.$strBddServeur.';dbname='.$strBddBase, $strBddLogin, $strBddPassword, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+            } catch (PDOException $e) {
+                echo $e;
+            }
         }
-        return self::$connect;
-    }
-     
-    //----------------------------------------
-    //FONCTIONS
-    //----------------------------------------
-        
-    public function requete($req)
-    {
-        $query = $this->bdd->query($req);
-        return $query;
-    }
-
-    public function preparation($req)
-    {
-        $query = $this->bdd->prepare($req);
-        return $query;
-    }
-
-    public function execution($query)
-    {
-        $req = $query->execute();
-        return $req;
-    }
- 
-    public function dernierIndex()
-    {
-        return $this->bdd->lastInsertId();
-    }
-
-    public function fetchData($sth)
-    {
-         return $sth->fetch();
+        return self::$_instance;
     }
 }
