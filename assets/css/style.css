@@ -98,7 +98,7 @@ nav.navbar {
     overflow: hidden;
     line-height: 50px;
     /*color: #fff;*/
-    padding-left:  10px;
+    padding-left: 10px;
 }
 
 .warning-bg {
@@ -135,10 +135,10 @@ nav.navbar {
 select {
     border: 1px solid #eee !important;
     border-radius: 0px !important;
-    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0) !important;
-    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0) !important;
-    -o-box-shadow: 0 5px 15px rgba(0,0,0,0) !important;
-    box-shadow: 0 5px 15px rgba(0,0,0,0) !important;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0) !important;
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0) !important;
+    -o-box-shadow: 0 5px 15px rgba(0, 0, 0, 0) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0) !important;
 }
 
 .content-title {
@@ -156,12 +156,13 @@ p {
 .content-box {
     margin-bottom: 10px;
 }
+
 .data-info .dataTables_wrapper {
     background: #49ceff;
     color: #fff;
 }
 
-thead > tr > th {
+thead>tr>th {
     color: #fff;
 }
 
@@ -208,7 +209,8 @@ table.dataTable {
     background: #3cb6e3 !important;
 }
 
-table.display tbody tr, table.display tbody tr td {
+table.display tbody tr,
+table.display tbody tr td {
     background: #fff !important;
     font-weight: 500;
 }
@@ -235,4 +237,17 @@ table.display tbody tr, table.display tbody tr td {
 .size-title {
     font-size: 20px;
     font-weight: 300;
+}
+
+.btn-add {
+    font-size: 20px;
+    margin: 6px 15px;
+    cursor: pointer;
+}
+
+.separate-menu {
+    background-color: #111;
+    color: #999;
+    line-height: 50px;
+    padding-left: 10px;
 }

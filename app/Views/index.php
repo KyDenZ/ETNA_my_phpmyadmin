@@ -1,7 +1,4 @@
-{% extends "layout.html.twig" %}
-{% block container %}
-
- <h1>Dashboard</h1>
+<h1>Dashboard</h1>
 <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="content-box white danger-bg">
@@ -9,7 +6,7 @@
                 <h5 class="content-title pull-left white">Base de données</h5>
             </div>
             <div class="content">
-                <p calass="text-uppercase zero-m">0</p>
+                <p class="text-uppercase zero-m">0</p>
             </div>
         </div>
     </div>
@@ -41,7 +38,7 @@
                 <div class="toolbar tool1">
                     <h5 class="zero-m">Liste des bases de données</h5>
                 </div>
-                <h5 class="pull-right white"><i class="zmdi zmdi-plus"></i></h5>
+                <div class="pull-right white btn-add" data-toggle="modal" data-target="#modal-add-database"><i class="zmdi zmdi-plus"></i></div>
                 <table id="table1" class="display datatable table-striped table dataTable no-footer dtr-inline table-hover"
                        role="grid">
                     <thead>
@@ -81,4 +78,24 @@
         </div>
     </div>
 </div>
-{% endblock %}
+
+<!-- Modal -->
+<div id="modal-add-database" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Ajouter une base de données</h4>
+      </div>
+      <div class="modal-body">
+        <p>text test</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

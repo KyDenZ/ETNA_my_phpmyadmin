@@ -23,7 +23,8 @@
 </head>
 <body>
 <!--<div id="wrapper" class="toggled">-->
-<div id="wrapper" {% if session.id_user != null %}class="toggled"{% endif %}>
+<?php echo "" ?>
+<div id="wrapper" <?php if (isset($_SESSION["id_user"])) {echo 'class="toggled"'; } ?>>
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -47,7 +48,7 @@
     <!-- /#sidebar-wrapper -->
 
     <nav class="navbar navbar-default navbar-fixed-top">
-        {% if session.id_user != null %}
+        <?php if (isset($_SESSION["id_user"])) { ?>
             <ul class="nav navbar-nav navbar-left">
                 <li>
                     <a id="menu-toggle" style="cursor: pointer">
@@ -55,7 +56,7 @@
                     </a>
                 </li>
             </ul>
-        {% endif %}
+        <?php } ?>
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Data API</a>
@@ -66,34 +67,14 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    {% if session.id_user != null %}
+                    <?php if (isset($_SESSION["id_user"])) { ?>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/logout">Deconnexion</a></li>
                     </ul>
-                    {% endif %}
+                    <?php } ?>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
 
     <div class="container-content">
-        {% block container %}
-        {% endblock %}
-    </div>
-
-</div>
-<!-- /#wrapper -->
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<script>
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
-</body>
-</html>

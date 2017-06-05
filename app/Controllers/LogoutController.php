@@ -2,8 +2,6 @@
 
 namespace Controllers;
 
-use Models\Users;
-
 class LogoutController extends Controller
 {
     public function index()
@@ -17,4 +15,5 @@ class LogoutController extends Controller
         header('Location: /');
     }
 
+//Action login - logout
 }
