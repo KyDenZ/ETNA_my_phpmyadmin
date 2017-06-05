@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Models\Users;
+use Lib\Bdd;
 
 class IndexController extends Controller
 {
@@ -11,6 +12,7 @@ class IndexController extends Controller
     public function index()
     {
         if (isset($_SESSION["id_user"])) {
+            $this->version();
             include("app/Views/index.php");
         } else {
             include("app/Views/login.php");
@@ -43,5 +45,15 @@ class IndexController extends Controller
                 include("app/Views/login.php");
             }
         }
+    }
+
+    public function version()
+    {
+        $versionapache = apache_get_version();
+        $versionphp = phpversion();
+        $pdo = Bdd::getInstance();
+        $versionmysql = $pdo->query('select version()')->fetchColumn();
+        $this->array["version"] = ["version_php" => $versionphp, "version_mysql" => $versionmysql, "version_apache" => $apache_get_version];
+        $this->array;
     }
 }
