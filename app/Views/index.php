@@ -6,7 +6,7 @@
                 <h5 class="content-title pull-left white">Base de données</h5>
             </div>
             <div class="content">
-                <p class="text-uppercase zero-m">0</p>
+                <p class="text-uppercase zero-m"><?php echo $this->array["count"]["databases"] ?></p>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
                 <h5 class="content-title pull-left white">Utilisateurs</h5>
             </div>
             <div class="content">
-                <p class="text-uppercase zero-m">0</p>
+                <p class="text-uppercase zero-m"><?php echo $this->array["count"]["users"] ?></p>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 <h5 class="content-title pull-left white">Taille occupé</h5>
             </div>
             <div class="content">
-                <p class="text-uppercase zero-m">0</p>
+                <p class="text-uppercase zero-m"><?php echo $this->array["count"]["sizeBdd"] ?> Mb</p>
             </div>
         </div>
     </div>
@@ -89,14 +89,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Ajouter une base de données</h4>
+                <h4 class="modal-title">Créer une nouvelle base de données</h4>
             </div>
-            <div class="modal-body">
-                <p>text test</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+            <form class="form-login" method="POST" action="/createDatabase">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="nameBdd" placeholder="NEW BDD">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
 
     </div>

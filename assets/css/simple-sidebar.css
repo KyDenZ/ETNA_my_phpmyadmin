@@ -76,6 +76,10 @@ body {
     color: #999999;
 }
 
+#sidebar-wrapper ul li.all-databases a {
+    line-height: 30px;
+}
+
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;

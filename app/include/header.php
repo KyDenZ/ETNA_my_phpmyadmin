@@ -23,7 +23,9 @@
 </head>
 <body>
 <!--<div id="wrapper" class="toggled">-->
-<div id="wrapper" <?php if (isset($_SESSION["id_user"])) {echo 'class="toggled"'; } ?>>
+<div id="wrapper" <?php if (isset($_SESSION["id_user"])) {
+    echo 'class="toggled"';
+} ?>>
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -33,21 +35,16 @@
                     My_phpmyadmin
                 </a>
             </li>
-            <li>
-                <a href="#demo3" data-toggle="collapse">Dashboard</a>
-                <div class="collapse" id="demo3">
-                    <a href="#" class="tables-bdd" data-parent="#SubSubMenu1">Sub sub item 1</a>
-                </div>
-                <a href="#demo4" data-toggle="collapse">Dashboard</a>
-                <div class="collapse" id="demo4">
-                    <a href="#" class="tables-bdd" data-parent="#SubSubMenu1">Sub sub item 1</a>
-                </div>
-            </li>
-            <li>
-                <a href="#">Shortcuts</a>
-            </li>
-            <li>
-                <a href="#">Overview</a>
+            <li class="all-databases">
+                <?php foreach ($sideMenu->arrayBdd as $bdd => $tables) { ?>
+                    <a <?php echo "href='#$bdd'" ?> data-toggle="collapse"><?php echo $bdd ?></a>
+                    <div class="collapse" <?php echo "id='$bdd'" ?> >
+                        <?php foreach ($tables as $table) { ?>
+                            <a href="#" class="tables-bdd"><?php echo $table ?></a>
+                        <?php }
+                        ?> </div>
+                    <?php
+                } ?>
             </li>
         </ul>
     </div>
@@ -65,7 +62,7 @@
         <?php } ?>
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Data API</a>
+                <a class="navbar-brand" href="#"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -74,9 +71,9 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION["id_user"])) { ?>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/logout">Deconnexion</a></li>
-                    </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/logout">Deconnexion</a></li>
+                        </ul>
                     <?php } ?>
                 </ul>
             </div><!--/.nav-collapse -->

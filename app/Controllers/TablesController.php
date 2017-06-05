@@ -5,7 +5,7 @@ namespace Controllers;
 use Models\DataBase;
 use Lib\Bdd;
 
-class SidemenuController extends Controller
+class TablesController extends Controller
 {
     public $arrayBdd;
 
