@@ -1,6 +1,3 @@
-{% extends "layout.html.twig" %}
-{% block container %}
-
 <div class="col-md-4 col-sm-12 center col-md-offset-4" style="margin-top: 250px">
     <div class="content-box">
         <div class="content">
@@ -18,14 +15,12 @@
                     <input type="submit" class="submit-login" name="login-submit" value="Login">
                 </div>
             </form>
-            {% if error == "true" %}
+            <?php if (isset($this->array["error"]) == true) { ?>
             <div class="alert alert-danger alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Erreur !</strong> Identifiant inconnu
             </div>
-            {% endif %}
+            <?php } ?>
         </div>
     </div>
 </div>
-
-{% endblock %}

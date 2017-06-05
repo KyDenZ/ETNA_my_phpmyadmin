@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Models\Users;
+use Lib\Bdd;
 
 class IndexController extends Controller
 {
@@ -11,9 +12,10 @@ class IndexController extends Controller
     public function index()
     {
         if (isset($_SESSION["id_user"])) {
-            $this->twig->display('index.html.twig');
+            $this->version();
+            include("app/Views/index.php");
         } else {
-            $this->twig->display('login.html.twig');
+            include("app/Views/login.php");
         }
     }
 
@@ -28,7 +30,7 @@ class IndexController extends Controller
             header('Location: /');
         } else {
             $this->array = ["error" => "true"];
-            $this->twig->display('login.html.twig', $this->array);
+            include("app/Views/login.php");
         }
     }
 
@@ -38,10 +40,20 @@ class IndexController extends Controller
             $this->checkLogin();
         } else {
             if (isset($_SESSION["id_user"])) {
-                $this->twig->display('index.html.twig');
+                include("app/Views/index.php");
             } else {
-                $this->twig->display('login.html.twig');
+                include("app/Views/login.php");
             }
         }
+    }
+
+    public function version()
+    {
+        $versionApache = apache_get_version();
+        $versionPhp = phpversion();
+        $pdo = Bdd::getInstance();
+        $versionMysql = $pdo->query('select version()')->fetchColumn();
+        $this->array["version"] = ["version_php" => $versionPhp, "version_mysql" => $versionMysql, "version_apache" => $versionApache];
+        $this->array;
     }
 }
