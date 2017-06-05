@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace Lib;
 
 use \PDO;
  

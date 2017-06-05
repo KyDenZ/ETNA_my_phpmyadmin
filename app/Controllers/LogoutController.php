@@ -2,8 +2,6 @@
 
 namespace Controllers;
 
-use App;
-
 class LogoutController extends Controller
 {
     public function index()
