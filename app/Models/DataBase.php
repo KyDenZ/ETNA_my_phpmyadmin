@@ -29,6 +29,12 @@ class DataBase
         return $requete->fetchAll();
     }
 
+    public function save(){
+        $pdo = Bdd::getInstance();
+        $sql = "CREATE DATABASE ".$this->name;
+        var_dump($sql);
+        $pdo->exec($sql);
+    }
     //array_collection<database>
 
 }
