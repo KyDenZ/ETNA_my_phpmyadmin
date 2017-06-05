@@ -23,7 +23,6 @@
 </head>
 <body>
 <!--<div id="wrapper" class="toggled">-->
-<?php echo "" ?>
 <div id="wrapper" <?php if (isset($_SESSION["id_user"])) {echo 'class="toggled"'; } ?>>
 
     <!-- Sidebar -->
@@ -35,7 +34,14 @@
                 </a>
             </li>
             <li>
-                <a href="/">Dashboard</a>
+                <a href="#demo3" data-toggle="collapse">Dashboard</a>
+                <div class="collapse" id="demo3">
+                    <a href="#" class="tables-bdd" data-parent="#SubSubMenu1">Sub sub item 1</a>
+                </div>
+                <a href="#demo4" data-toggle="collapse">Dashboard</a>
+                <div class="collapse" id="demo4">
+                    <a href="#" class="tables-bdd" data-parent="#SubSubMenu1">Sub sub item 1</a>
+                </div>
             </li>
             <li>
                 <a href="#">Shortcuts</a>

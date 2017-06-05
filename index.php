@@ -7,6 +7,7 @@ use PHPRouter\Config;
 use PHPRouter\Router;
 use PHPRouter\Route;
 
+include 'app/Controllers/SidemenuController.php';
 include __DIR__.'/app/include/header.php';
 $config = Config::loadFromFile(__DIR__.'/router.yaml');
 $router = Router::parseConfig($config);

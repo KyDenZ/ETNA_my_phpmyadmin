@@ -21,7 +21,7 @@ class Bdd extends PDO
             $strBddPassword = DB_PASSWORD;
             $strBddBase = DB_DATABASE;
             try {
-                self::$_instance = new PDO('mysql:host='.$strBddServeur.';dbname='.$strBddBase, $strBddLogin, $strBddPassword, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+                self::$_instance = new PDO('mysql:host=' . $strBddServeur . ';dbname=' . $strBddBase, $strBddLogin, $strBddPassword, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
             } catch (PDOException $e) {
                 echo $e;
             }
