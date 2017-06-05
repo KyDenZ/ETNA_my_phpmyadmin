@@ -2,6 +2,8 @@
 
 namespace Models;
 
+use Lib\Bdd;
+
 class Users
 {
     public $id;

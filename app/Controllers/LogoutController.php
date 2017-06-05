@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Models\Users;
+use App;
 
 class LogoutController extends Controller
 {
@@ -17,4 +17,5 @@ class LogoutController extends Controller
         header('Location: /');
     }
 
+//Action login - logout
 }

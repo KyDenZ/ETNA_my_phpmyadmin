@@ -4,3 +4,4 @@ routes:
   index: [/, \Controllers\IndexController.index, GET]
   logout: [/logout, \Controllers\LogoutController.index, GET]
   login: [/login, \Controllers\IndexController.login, POST]
+  database: [/database, \Controllers\DatabaseController.index, POST]

@@ -6,7 +6,6 @@
     }],
     "require": {
         "twbs/bootstrap": "3.3.7",
-        "twig/twig": "^2.3",
         "dannyvankooten/php-router": "dev-master",
         "symfony/yaml": "3.4.x-dev"
     },
@@ -14,7 +13,8 @@
         "psr-4": {
             "Views\\": "app/Views/",
             "Controllers\\": "app/Controllers/",
-            "Models\\": "app/Models/"
+            "Models\\": "app/Models/",
+            "Lib\\": "app/Lib/"
         }
     },
     "minimum-stability": "dev"

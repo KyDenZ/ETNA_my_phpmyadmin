@@ -1,7 +1,4 @@
-{% extends "layout.html.twig" %}
-{% block container %}
-
- <h1>Dashboard</h1>
+<h1>Dashboard</h1>
 <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="content-box white danger-bg">
@@ -9,7 +6,7 @@
                 <h5 class="content-title pull-left white">Base de données</h5>
             </div>
             <div class="content">
-                <p calass="text-uppercase zero-m">0</p>
+                <p class="text-uppercase zero-m">0</p>
             </div>
         </div>
     </div>
@@ -102,4 +99,3 @@
 
   </div>
 </div>
-{% endblock %}
