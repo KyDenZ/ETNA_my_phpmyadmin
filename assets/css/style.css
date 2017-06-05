@@ -280,3 +280,9 @@ table.display tbody tr td {
     background: #ececec;
     border-bottom: 1px dotted #ccc;
 }
+
+.tables-bdd {
+    line-height: 14px !important;
+    margin-left: 15px;
+    font-size: 11px;
+}
