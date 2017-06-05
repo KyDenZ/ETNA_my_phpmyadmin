@@ -14,6 +14,7 @@ class IndexController extends Controller
     {
         if (isset($_SESSION["id_user"])) {
             $this->version();
+            $this->count();
             include("app/Views/index.php");
         } else {
             include("app/Views/login.php");
@@ -58,13 +59,20 @@ class IndexController extends Controller
         $this->array;
     }
 
+
     public function createDataBase()
     {
-        if (isset($_POST['newbdd-submit']) && !empty($_POST["nameBdd"])){
+        if (isset($_POST['newbdd-submit']) && !empty($_POST["nameBdd"])) {
             $dataBase = new Database($_POST['nameBdd']);
             $dataBase->save();
             header('Location: /');
         }
+    }
+
+    public function count() {
+        $dataBase = new DataBase();
+        $users = new Users();
+        $this->array["count"] = ["databases" => count($dataBase->getDatabases()), "users" => count($users->getUsers()), "sizeBdd" => $dataBase->getSizeAllDatabases()];
     }
 }
 
