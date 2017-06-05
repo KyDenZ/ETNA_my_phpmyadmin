@@ -6,7 +6,7 @@
                 <h5 class="content-title pull-left white">Base de données</h5>
             </div>
             <div class="content">
-                <p class="text-uppercase zero-m">0</p>
+                <p class="text-uppercase zero-m"><?php echo $this->array["count"]["databases"] ?></p>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
                 <h5 class="content-title pull-left white">Utilisateurs</h5>
             </div>
             <div class="content">
-                <p class="text-uppercase zero-m">0</p>
+                <p class="text-uppercase zero-m"><?php echo $this->array["count"]["users"] ?></p>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 <h5 class="content-title pull-left white">Taille occupé</h5>
             </div>
             <div class="content">
-                <p class="text-uppercase zero-m">0</p>
+                <p class="text-uppercase zero-m"><?php echo $this->array["count"]["sizeBdd"] ?> Mb</p>
             </div>
         </div>
     </div>

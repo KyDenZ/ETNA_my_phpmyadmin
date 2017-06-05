@@ -25,4 +25,12 @@ class Users
         }
         return $result["id"];
     }
+
+    public function getUsers()
+    {
+        $pdo = Bdd::getInstance();
+        $requete = $pdo->prepare('SELECT * FROM `users`');
+        $requete->execute();
+        return $requete->fetchAll();
+    }
 }
