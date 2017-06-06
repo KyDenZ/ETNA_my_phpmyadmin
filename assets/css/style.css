@@ -309,3 +309,33 @@ table.display tbody tr td {
 #sidebar-wrapper > ul > li.all-databases > div > a > i {
     display: inline;
 }
+
+.action-table {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    width: 150px;
+    background-color: #fff;
+    color: #333333;
+    -moz-box-shadow: 0px 0px 20px 0px #c0c0c0;
+    -webkit-box-shadow: 0px 0px 20px 0px #c0c0c0;
+    -o-box-shadow: 0px 0px 20px 0px #c0c0c0;
+    box-shadow: 0px 0px 20px 0px #c0c0c0;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=NaN, Strength=20);
+}
+
+.title-action {
+    background-color: #3cbfe0;
+    color: #fff;
+    padding: 10px 18px;
+}
+
+.icon-action {
+    font-size: 25px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.actions-action {
+    padding: 10px 20px;
+}

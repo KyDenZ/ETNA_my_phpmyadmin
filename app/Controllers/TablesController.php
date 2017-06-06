@@ -7,8 +7,13 @@ use Lib\Bdd;
 
 class TablesController extends Controller
 {
+    private $array = [];
+
     public function index()
     {
-       echo $_GET["table"];
+        $bdd = new DataBase($_GET["table"]);
+        $this->array["table_title"] = $bdd->name;
+        $this->array["tables"] = $bdd->getTables();
+        include("app/Views/tables.php");
     }
 }

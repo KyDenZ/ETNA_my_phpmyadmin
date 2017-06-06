@@ -41,7 +41,7 @@
                         <a <?php echo "href='#$bdd'" ?> class="icon-bdd" data-toggle="collapse">
                             <i class="zmdi zmdi-plus"></i>
                         </a>
-                        <div class="title-bdd"><a <?php echo "href='ETNA_my_phpmyadmin/tables?table=".$bdd."'" ?>><?php echo $bdd ?></a></div>
+                        <div class="title-bdd"><a <?php echo "href='ETNA_my_admin/tables?table=".$bdd."'" ?>><?php echo $bdd ?></a></div>
                     </div>
                     <div class="collapse" <?php echo "id='$bdd'" ?> >
                         <?php foreach ($tables as $table) { ?>
