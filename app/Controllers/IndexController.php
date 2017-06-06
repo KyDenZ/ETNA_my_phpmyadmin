@@ -51,12 +51,11 @@ class IndexController extends Controller
 
     public function version()
     {
-        //$versionApache = apache_get_version();
+        $versionApache = apache_get_version();
         $versionPhp = phpversion();
         $pdo = Bdd::getInstance();
         $versionMysql = $pdo->query('select version()')->fetchColumn();
-        $this->array["version"] = ["version_php" => $versionPhp, "version_mysql" => $versionMysql];
-        $this->array;
+        $this->array["version"] = ["version_php" => $versionPhp, "version_mysql" => $versionMysql, "version_apache" => $versionApache];
     }
 
 

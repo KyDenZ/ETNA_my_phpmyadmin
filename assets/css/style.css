@@ -286,3 +286,26 @@ table.display tbody tr td {
     margin-left: 15px;
     font-size: 11px;
 }
+
+.title-bdd {
+    font-size: 14px;
+    color: #999;
+    float: left;
+}
+
+.icon-bdd {
+    float: left;
+}
+
+.group-title-bdd {
+    width: 100%;
+    height: 40px;
+}
+
+#sidebar-wrapper ul li.all-databases .group-title-bdd a {
+    line-height: 40px !important;
+}
+
+#sidebar-wrapper > ul > li.all-databases > div > a > i {
+    display: inline;
+}

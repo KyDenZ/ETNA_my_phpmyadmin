@@ -37,7 +37,12 @@
             </li>
             <li class="all-databases">
                 <?php foreach ($sideMenu->arrayBdd as $bdd => $tables) { ?>
-                    <a <?php echo "href='#$bdd'" ?> data-toggle="collapse"><?php echo $bdd ?></a>
+                    <div class="group-title-bdd">
+                        <a <?php echo "href='#$bdd'" ?> class="icon-bdd" data-toggle="collapse">
+                            <i class="zmdi zmdi-plus"></i>
+                        </a>
+                        <div class="title-bdd"><a <?php echo "href='/tables?table=".$bdd."'" ?>><?php echo $bdd ?></a></div>
+                    </div>
                     <div class="collapse" <?php echo "id='$bdd'" ?> >
                         <?php foreach ($tables as $table) { ?>
                             <a href="#" class="tables-bdd"><?php echo $table ?></a>

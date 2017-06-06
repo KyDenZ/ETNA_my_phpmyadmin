@@ -87,20 +87,24 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Créer une nouvelle base de données</h4>
-            </div>
-            <form class="form-login" method="POST" action="/createDatabase">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="nameBdd" placeholder="NEW BDD">
+            <form method="POST" action="/createDatabase">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Créer une nouvelle base de données</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nameBdd" placeholder="NEW BDD">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer</button>
+                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer
+                    </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
-
     </div>
 </div>
