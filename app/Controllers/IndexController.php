@@ -29,7 +29,9 @@ class IndexController extends Controller
         $uid = $userClass->Login($login, $password);
         if ($uid) {
             $_SESSION["id_user"] = $uid;
+            var_dump("test");
             header('Location: /');
+            var_dump("test2");
         } else {
             $this->array = ["error" => "true"];
             include("app/Views/login.php");
@@ -51,7 +53,8 @@ class IndexController extends Controller
 
     public function version()
     {
-        $versionApache = apache_get_version();
+        //$versionApache = apache_get_version();
+        $versionApache = "1.0";
         $versionPhp = phpversion();
         $pdo = Bdd::getInstance();
         $versionMysql = $pdo->query('select version()')->fetchColumn();

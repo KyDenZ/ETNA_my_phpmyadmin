@@ -4,7 +4,7 @@
             <div class="text-center">
                 <img class="logo-login" src="../../assets/img/logo.png">
             </div>
-            <form class="form-login" method="POST" action="/login">
+            <form class="form-login" method="POST" action="ETNA_my_phpmyadmin/login">
                 <div class="form-group">
                     <input type="text" class="form-control" name="login" placeholder="login">
                 </div>

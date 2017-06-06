@@ -8,9 +8,9 @@
     <title></title>
 
     <!-- Bootstrap -->
-    <link href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="./assets/css/simple-sidebar.css" rel="stylesheet">
+    <link href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="/assets/css/simple-sidebar.css" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
@@ -41,7 +41,7 @@
                         <a <?php echo "href='#$bdd'" ?> class="icon-bdd" data-toggle="collapse">
                             <i class="zmdi zmdi-plus"></i>
                         </a>
-                        <div class="title-bdd"><a <?php echo "href='/tables?table=".$bdd."'" ?>><?php echo $bdd ?></a></div>
+                        <div class="title-bdd"><a <?php echo "href='tables?table=".$bdd."'" ?>><?php echo $bdd ?></a></div>
                     </div>
                     <div class="collapse" <?php echo "id='$bdd'" ?> >
                         <?php foreach ($tables as $table) { ?>
@@ -77,7 +77,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION["id_user"])) { ?>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/logout">Deconnexion</a></li>
+                            <li><a href="ETNA_my_phpmyadmin/logout">Deconnexion</a></li>
                         </ul>
                     <?php } ?>
                 </ul>
