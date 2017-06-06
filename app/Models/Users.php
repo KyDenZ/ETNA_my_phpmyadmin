@@ -16,7 +16,6 @@ class Users
 
     public function Login(string $login, string $password): int
     {
-        var_dump($login, $password);
         $pdo = Bdd::getInstance();
         $requete = $pdo->prepare("SELECT * FROM my_phpmyadmin.users WHERE login = :login AND password = :password");
         $requete->execute([':login' => $login, ':password' => md5($password)]);

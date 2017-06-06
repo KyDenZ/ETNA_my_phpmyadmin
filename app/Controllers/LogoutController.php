@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use Lib\Route;
+
 class LogoutController extends Controller
 {
     public function index()
@@ -12,7 +14,7 @@ class LogoutController extends Controller
     public function logout()
     {
         session_destroy();
-        header('Location: /');
+        redirect_to("/");
     }
 
 //Action login - logout

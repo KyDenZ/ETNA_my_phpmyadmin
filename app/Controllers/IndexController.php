@@ -29,9 +29,7 @@ class IndexController extends Controller
         $uid = $userClass->Login($login, $password);
         if ($uid) {
             $_SESSION["id_user"] = $uid;
-            var_dump("test");
-            header('Location: /');
-            var_dump("test2");
+            redirect_to('/');
         } else {
             $this->array = ["error" => "true"];
             include("app/Views/login.php");
@@ -67,7 +65,7 @@ class IndexController extends Controller
         if (isset($_POST['newbdd-submit']) && !empty($_POST["nameBdd"])) {
             $dataBase = new Database($_POST['nameBdd']);
             $dataBase->save();
-            header('Location: /');
+            redirect_to('/');
         }
     }
 
