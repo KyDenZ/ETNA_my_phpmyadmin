@@ -29,7 +29,7 @@ class IndexController extends Controller
         $uid = $userClass->Login($login, $password);
         if ($uid) {
             $_SESSION["id_user"] = $uid;
-            header('Location: /');
+            redirect_to('/');
         } else {
             $this->array = ["error" => "true"];
             include("app/Views/login.php");
@@ -52,11 +52,11 @@ class IndexController extends Controller
     public function version()
     {
         //$versionApache = apache_get_version();
+        $versionApache = "1.0";
         $versionPhp = phpversion();
         $pdo = Bdd::getInstance();
         $versionMysql = $pdo->query('select version()')->fetchColumn();
-        $this->array["version"] = ["version_php" => $versionPhp, "version_mysql" => $versionMysql];
-        $this->array;
+        $this->array["version"] = ["version_php" => $versionPhp, "version_mysql" => $versionMysql, "version_apache" => $versionApache];
     }
 
 
@@ -65,7 +65,7 @@ class IndexController extends Controller
         if (isset($_POST['newbdd-submit']) && !empty($_POST["nameBdd"])) {
             $dataBase = new Database($_POST['nameBdd']);
             $dataBase->save();
-            header('Location: /');
+            redirect_to('/');
         }
     }
 

@@ -1,18 +1,27 @@
 <?php
+
 namespace Models;
 
 use Lib\Bdd;
 
-class Table {
+class Table
+{
 
-    public $nom;
+    public $name;
 
-    public function __construct()
+    public function __construct($name = null)
     {
+        $this->name = $name;
     }
 
-    public function getField() {
-
+    public function getField($name = null)
+    {
+        $name = $name ? $name : $this->name;
+        $pdo = Bdd::getInstance();
+        $pdo->exec("USE " . $name);
+        $requete = $pdo->prepare('SHOW TABLES');
+        $requete->execute();
+        return $requete->fetchAll();
     }
 
 }
