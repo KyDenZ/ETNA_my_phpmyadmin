@@ -87,7 +87,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <form method="POST" action="/createDatabase">
+            <form method="POST" action="http://localhost:8888/ETNA_my_phpmyadmin/createDatabase">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Créer une nouvelle base de données</h4>
