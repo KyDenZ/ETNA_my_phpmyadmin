@@ -8,15 +8,18 @@ function checkAllInTable() {
 
 function deleteElement() {
     var idDeleteTables = null;
+    var element = null;
     $('input[type=checkbox]:checked').each(function() {
         idDeleteTables = $(this).closest("td").data("id");
+        element = $(this).closest("tr");
         if (idDeleteTables) {
             $.ajax({
-                url: BASE_URL + "/deleteDatabase",
+                url: BASE_URL + "/deleteTable",
                 timeout: 4000,
-                data: "table = " + idDeleteTables,
+                type: "GET",
+                data: "table=" + idDeleteTables + "&bdname=" + $("#dbname").val(),
                 success: function(data) {
-                    console.log("ok");
+                    element.remove();
                 },
                 error: function() {
                     console.log("error");
@@ -24,7 +27,6 @@ function deleteElement() {
             });
         }
     });
-
 }
 
 function editElement() {

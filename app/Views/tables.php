@@ -1,4 +1,5 @@
-<h3><?php echo $this->array["table_title"] ?></h3>
+<h3><?php echo $this->array["dbname_title"] ?></h3>
+<input type="hidden" value="<?php echo $this->array["dbname_title"] ?>" id="dbname">
 
 <div class="row" style="margin-top:20px;">
     <div class="col-md-8 col-sm-12">

@@ -4,14 +4,16 @@ namespace Models;
 
 use Lib\Bdd;
 
-class Table
+class Tables
 {
 
     public $name;
+    public $bdname;
 
-    public function __construct($name = null)
+    public function __construct($name = null, $bdname = null)
     {
         $this->name = $name;
+        $this->bdname = $bdname;
     }
 
     public function getField($name = null)
@@ -24,10 +26,11 @@ class Table
         return $requete->fetchAll();
     }
 
-    public function deleteTable($name = null) {
-        $name = $name ? $name : $this->name;
+    public function deleteTable() {
         $pdo = Bdd::getInstance();
-        $requete = $pdo->prepare("DROP TABLE $name");
+        $pdo->exec("USE ".$this->bdname);
+        $requete = $pdo->prepare("DROP TABLE ".$this->name);
+        $requete->execute();
     }
 
 }
