@@ -19,8 +19,8 @@
                     <tbody>
                     <?php foreach ($this->array["tables"] as $tables) { ?>
                         <tr role="row" class="odd">
-                            <td><input type="checkbox"></td>
-                            <td class="info-color sorting_1"><?php echo $tables[0] ?></td>
+                            <?php echo '<td data-id='.$tables[0].'><input type="checkbox"></td>' ?>
+                            <?php echo '<td class="info-color sorting_1">'.$tables[0].'</td>' ?>
                             <td class="text-center">
                                 <button class="no-button" title="Comparer">
                                     <i class="zmdi zmdi-compare btn-options"></i></button>

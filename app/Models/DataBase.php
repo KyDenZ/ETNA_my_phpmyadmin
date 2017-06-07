@@ -54,5 +54,4 @@ class DataBase
     }
 
     //array_collection<database>
-
 }
