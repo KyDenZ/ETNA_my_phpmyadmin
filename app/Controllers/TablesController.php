@@ -16,4 +16,10 @@ class TablesController extends Controller
         $this->array["tables"] = $bdd->getTables();
         include("app/Views/tables.php");
     }
+
+    public function deleteDatabase()
+    {
+        $table = new Table($_GET["table"]);
+        $table->deleteDatabase();
+    }
 }

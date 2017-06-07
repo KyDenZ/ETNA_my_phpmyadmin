@@ -6,3 +6,4 @@ routes:
   login: [/login, Controllers\IndexController.login, POST]
   createDatabase: [/createDatabase, Controllers\IndexController.createDataBase, POST]
   tables: [/tables, Controllers\TablesController.index, GET]
+  deleteDatabase: [/deleteDatabase, Controllers\TablesController.deleteDatabase, GET]

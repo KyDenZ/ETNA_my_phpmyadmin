@@ -24,4 +24,10 @@ class Table
         return $requete->fetchAll();
     }
 
+    public function deleteTable($name = null) {
+        $name = $name ? $name : $this->name;
+        $pdo = Bdd::getInstance();
+        $requete = $pdo->prepare("DROP TABLE $name");
+    }
+
 }
