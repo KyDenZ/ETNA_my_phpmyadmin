@@ -3,7 +3,7 @@
 function redirect_to(string $url)
 {
     if ($url === "/")
-        echo "<META http-equiv=\"refresh\" content=\"0; URL=http://localhost:8888/ETNA_my_phpmyadmin\">";
+        echo "<META http-equiv=\"refresh\" content=\"0; URL=".BASE_URL."\">";
     else
-        echo "<META http-equiv=\"refresh\" content=\"0; URL=http://localhost:8888/ETNA_my_phpmyadmin$url\">";
+        echo "<META http-equiv=\"refresh\" content=\"0; URL=".BASE_URL."$url\">";
 }

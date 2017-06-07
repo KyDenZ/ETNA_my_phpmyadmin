@@ -31,7 +31,7 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="http://localhost:8888/ETNA_my_phpmyadmin">
+                <a href="<?php echo BASE_URL ?>">
                     My_phpmyadmin
                 </a>
             </li>
@@ -41,7 +41,7 @@
                         <a <?php echo "href='#$bdd'" ?> class="icon-bdd" data-toggle="collapse">
                             <i class="zmdi zmdi-plus"></i>
                         </a>
-                        <div class="title-bdd"><a <?php echo "href='http://localhost:8888/ETNA_my_phpmyadmin/tables?table=".$bdd."'" ?>><?php echo $bdd ?></a></div>
+                        <div class="title-bdd"><a <?php echo "href='<?php echo BASE_URL ?>/tables?table=".$bdd."'" ?>><?php echo $bdd ?></a></div>
                     </div>
                     <div class="collapse" <?php echo "id='$bdd'" ?> >
                         <?php foreach ($tables as $table) { ?>
@@ -77,7 +77,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION["id_user"])) { ?>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="http://localhost:8888/ETNA_my_phpmyadmin/logout">Deconnexion</a></li>
+                            <li><a href="<?php echo BASE_URL ?>/logout">Deconnexion</a></li>
                         </ul>
                     <?php } ?>
                 </ul>
