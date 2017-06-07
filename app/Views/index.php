@@ -51,8 +51,9 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php foreach ($this->array["dataBase"] as $dataBases) { ?>
                     <tr role="row" class="odd">
-                        <td class="info-color sorting_1"><strong>ok</strong></td>
+                        <td class="info-color sorting_1"><strong><?php echo $dataBases[0] ?></strong></td>
                         <td class="info-color sorting_1">0</td>
                         <td class="text-center">
                             <button class="no-button" title="Comparer">
@@ -61,6 +62,7 @@
                             </button>
                         </td>
                     </tr>
+                     <?php } ?>
                     </tbody>
                 </table>
             </div>
