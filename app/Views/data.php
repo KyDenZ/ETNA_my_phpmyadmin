@@ -6,9 +6,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a style="font-weight: 600"><?php echo $this->array["dbname_title"] ?></a></li>
-        <li><a <?php echo "href='".BASE_URL."/data?table=".$this->array["table_name"]."&dbname=".$this->array["table_name"]."'" ?>>Data</a></li>
-        <li><a <?php echo "href='".BASE_URL."/tableInfos?table=".$this->array["table_name"]."&dbname=".$this->array["table_name"]."'" ?>>Structure</a></li>
+        <li><a style="font-weight: 600"><?php echo $this->array["bdd_name"] ?></a></li>
+        <li><a <?php echo "href='".BASE_URL."/data?table=".$this->array["table_name"]."&bdd=".$this->array["bdd_name"]."'" ?>><i class="glyphicon glyphicon-stats icon-size"></i> Data</a></li>
+        <li><a <?php echo "href='".BASE_URL."/tableInfos?table=".$this->array["table_name"]."&bdd=".$this->array["bdd_name"]."'" ?>><i class="glyphicon glyphicon-list icon-size"></i> Structure</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -21,7 +21,6 @@
 <input type="hidden" value="<?php echo $this->array["bdd_name"] ?>" id="bdd_name">
 
 <div class="row" style="margin-top:20px;">
-    <div class="col-md-8 col-sm-12">
         <div class="data-info">
             <div id="table1_wrapper" class="dataTables_wrapper no-footer">
                 <div class="pull-right white btn-add" data-toggle="modal" data-target="#modal-add-database"><i
@@ -32,24 +31,23 @@
                     <thead>
                     <tr role="row">
                         <th style="width: 20px"><input type="checkbox" onclick="checkAllInTable()"></th>
-                        <th>Nom</th>
-                        <th>Type</th>
-                        <th>Attributs</th>
-                        <th>NULL</th>
-                        <th>Default</th>
+                        <?php
+                        if (isset($this->array["data"][0]))
+                            foreach ($this->array["data"][0] as $field => $key) {
+                            if (!is_int($field))
+                                echo "<th>".$field."</th>";
+                            } ?>
                         <th style="width: 120px"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($this->array["fields"] as $field) { ?>
+                    <?php foreach ($this->array["data"] as $field => $key) { ?>
                         <tr role="row" class="odd">
-                            <?php echo '<td data-id='.$field[0].'><input type="checkbox"></td>' ?>
-                            <?php echo '<td class="info-color sorting_1" ><p>'.$field[0].'</p></td>' ?>
-                            <?php echo '<td class="info-color sorting_1"='.$field[0].'><p>'.explode(' ', $field[1])[0].'</p></td>' ?>
-                            <?php $attr = isset(explode(' ', $field[1])[1]) ?  explode(' ', $field[1])[1] : "";
-                            echo '<td class="info-color sorting_1" ><p>'.$attr.'</p></td>' ?>
-                            <?php echo '<td class="info-color sorting_1" ><p>'.$field[2].'</p></td>' ?>
-                            <?php echo '<td class="info-color sorting_1" ><p>'.$field[4].'</p></td>' ?>
+                            <?php echo '<td data-id='.$key[0].'><input type="checkbox"></td>' ?>
+                             <?php foreach ($key as $data => $dataKey) { 
+                                if (!is_int($data))
+                                    echo '<td class="info-color sorting_1"><p>'.$dataKey.'</p></td>'; 
+                                } ?>
                             <td class="text-center">
                                 <button class="no-button" title="Comparer">
                                     <i class="zmdi zmdi-compare btn-options"></i></button>
@@ -62,7 +60,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+
     </div>
 
     <div class="action-table">

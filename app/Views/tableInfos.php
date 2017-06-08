@@ -6,9 +6,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a style="font-weight: 600"><?php echo $this->array["dbname_title"] ?></a></li>
-        <li><a <?php echo "href='".BASE_URL."/data?table=".$this->array["table_name"]."&dbname=".$this->array["table_name"]."'" ?>>Data</a></li>
-        <li><a <?php echo "href='".BASE_URL."/tableInfos?table=".$this->array["table_name"]."&dbname=".$this->array["table_name"]."'" ?>>Structure</a></li>
+        <li><a style="font-weight: 600"><?php echo $this->array["bdd_name"] ?></a></li>
+        <li><a <?php echo "href='".BASE_URL."/data?table=".$this->array["table_name"]."&bdd=".$this->array["bdd_name"]."'" ?>><i class="glyphicon glyphicon-stats icon-size"></i> Data</a></li>
+        <li><a <?php echo "href='".BASE_URL."/tableInfos?table=".$this->array["table_name"]."&bdd=".$this->array["bdd_name"]."'" ?>><i class="glyphicon glyphicon-list icon-size"></i> Structure</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -21,7 +21,6 @@
 <input type="hidden" value="<?php echo $this->array["bdd_name"] ?>" id="bdd_name">
 
 <div class="row" style="margin-top:20px;">
-    <div class="col-md-8 col-sm-12">
         <div class="data-info">
             <div id="table1_wrapper" class="dataTables_wrapper no-footer">
                 <div class="pull-right white btn-add" data-toggle="modal" data-target="#modal-add-database"><i
@@ -62,7 +61,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
 
     <div class="action-table">

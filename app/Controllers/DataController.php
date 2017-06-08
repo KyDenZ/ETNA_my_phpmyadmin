@@ -6,7 +6,7 @@ use Lib\Bdd;
 use Models\Tables;
 use Models\Fields;
 
-class TableInfosController extends Controller
+class DataController extends Controller
 {
     private $array = [];
 
@@ -16,8 +16,8 @@ class TableInfosController extends Controller
         $this->array["bdd_name"] = $table->bdname;
         $this->array["table_name"] = $table->name;
         $this->array["data"] = $table->getData();
-        var_dump($this->array["data"]);
-        include("app/Views/tableInfos.php");
+        // var_dump($this->array["data"]);
+        include("app/Views/data.php");
         //var_dump($this->array["fields"]);
     }
 }
