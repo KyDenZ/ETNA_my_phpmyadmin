@@ -4,7 +4,7 @@ namespace Models;
 
 use Lib\Bdd;
 
-class Tables
+class Fields
 {
 
     public $name;
@@ -20,9 +20,13 @@ class Tables
         $this->bdname = $bdname;
     }
 
-    public function getField()
+    public function updateField($newName = null)
     {
-        
+        $newName = $newName ? $newName : $this->name;
+        $pdo = Bdd::getInstance();
+        $pdo->exec("USE ".$this->bdname);
+        $requete = $pdo->prepare('ALTER TABLE '.$this->bdTable.' CHANGE '.$this->name.' '.$newName.' '.$this->type.' SET latin1 COLLATE latin1_swedish_ci '.$null.' '.$valeurDefault.';');
+        $requete->execute();
     }
 
     public function getFields($name = null)
