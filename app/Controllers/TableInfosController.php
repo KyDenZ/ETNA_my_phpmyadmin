@@ -21,7 +21,8 @@ class TableInfosController extends Controller
 
     public function editTable()
     {
-        $field = new Fields($_POST["field"], $_POST["dbname"], $_POST["tableName"], $_POST["type"], $_POST["attr"], $_POST["isNull"], $_POST["defineDefault"]);
+        $field = new Fields($_POST["field"], $_POST["dbname"], $_POST["tableName"], $_POST["type"], $_POST["isNull"], $_POST["defineDefault"]);
         var_dump($field);
+        $field->updateField($_POST["oldName"]);
     }
 }

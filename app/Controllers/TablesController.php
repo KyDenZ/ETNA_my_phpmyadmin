@@ -20,7 +20,16 @@ class TablesController extends Controller
 
     public function deleteTable()
     {
-        $table = new Tables($_GET["table"], $_GET["bdname"]);
+        $table = new Tables($_GET["table"], $_GET["dbname"]);
         $table->deleteTable();
+    }
+
+    public function createTable() {
+        if (isset($_POST['newTable-submit']) && !empty($_POST["nameTable"])) {
+        $table = new Tables($_POST["nameTable"], $_POST["dbname"]);
+        $field = new Fields($nameField, $bdnameField, $namestructField, $typeField, $nullField);
+        $table->setField($field);
+        $table->save();
+    }
     }
 }

@@ -41,7 +41,7 @@ function editElement() {
 
 function editField() {
     $('input[type=checkbox]:checked').each(function() {
-        $(this).closest("tr").find("td:not(:eq(0)):not(:last-child)").each(function() {
+        $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function() {
             if ($(this).find("p").length) {
                 var val = $(this).find("p").html();
                 $(this).find("p").remove();
@@ -67,10 +67,10 @@ function valideField() {
     var dbname = $("#bdd_name").val();
     $('tbody input[type=checkbox]:checked').each(function() {
         var data = {
+            "oldName": $(this).closest("tr").find("td").data("id"),
             "field": $(this).closest("tr").find('td:eq(1) p').html(),
             "dbname": dbname,
             "type": $(this).closest("tr").find('td:eq(2) p').html(),
-            "attr": $(this).closest("tr").find('td:eq(3) p').html(),
             "isNull": $(this).closest("tr").find('td:eq(4) p').html(),
             "defineDefault": $(this).closest("tr").find('td:eq(5) p').html(),
             "tableName": $("#table_name").val()
@@ -85,7 +85,7 @@ function valideField() {
                 dataType: "json",
                 data: data,
                 success: function(data) {
-                    element.remove();
+                    $(this).closest("tr").find("td").data("id") = "ok"
                 },
                 error: function() {
                     console.log("error");

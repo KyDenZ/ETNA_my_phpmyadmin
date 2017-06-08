@@ -101,11 +101,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer
-                    </button>
+                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
