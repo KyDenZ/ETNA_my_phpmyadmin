@@ -25,7 +25,7 @@ class Fields
     }
 
     public function checkNull($null) : string{
-        if ($_POST["null"] == "on")
+        if ($null == "on" || $null == "YES")
             return "NULL";
         else
             return "NOT NULL";
@@ -37,11 +37,11 @@ class Fields
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
         if ($this->getType() == "LONGTEXT")
-            $end = "CHARACTER SET latin1 COLLATE latin1_swedish_ci ". $this->null ." DEFAULT ". $this->valeurDefault;
+            $end = "CHARACTER SET latin1 COLLATE latin1_swedish_ci ". checkNull($this->null) ." DEFAULT ". $this->valeurDefault;
         else if ($this->getType() == "VARCHAR")
-            $end = "UNSIGNED " + $this->null;
+            $end = "UNSIGNED " . checkNull($this->null);
         else if ($this->getType() == "INT")
-            $end = "UNSIGNED " + $this->null;
+            $end = "UNSIGNED " . checkNull($this->null);
         $requete = $pdo->prepare('ALTER TABLE ' . $this->bdTable . ' CHANGE ' . $newName . ' ' . $this->name . ' ' . $this->type . ' ' . $end . ';');
         var_dump($requete);
         $requete->execute();
