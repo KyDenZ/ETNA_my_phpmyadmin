@@ -7,3 +7,4 @@ routes:
   createDatabase: [/createDatabase, Controllers\IndexController.createDataBase, POST]
   tables: [/tables, Controllers\TablesController.index, GET]
   deleteDatabase: [/deleteDatabase, Controllers\TablesController.deleteDatabase, GET]
+  createTable: [/createTable, Controllers\TablesController.createTable, POST]

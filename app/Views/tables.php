@@ -51,3 +51,42 @@
             </div>
         </div>
     </div>
+
+<div class="modal fade" id="modal-add-database">
+<div class="modal-dialog">
+<form method="POST" action="<?php echo BASE_URL ?>/createTable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">Créer la table : <input type="text" name="nameTable" /></td></h4>
+    </div>
+    <div class="modal-body">
+      <table class="table table-striped">
+          <thead>
+          </thead>
+          <tbody class="table">
+              <tr>
+                  <td>Nom</td>
+                  <td>Type</td>
+                  <td>Valeur par défaut</td>
+                  <td>Null</td>
+              </tr>
+              <tr>
+                  <td><input type="text" name="nameStruct" /></td>
+                  <td><select name="type" id="choice">
+                    <option value="INT">INT</option>
+                    <option value="VARCHAR">VARCHAR</option></select></td>
+                  <td><input type="text" /></td>
+                   <td><input type="checkbox" name="" value="checked" /></td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+    <button type="submit" class="btn btn-success" name="newTable-submit" value="createDatabase">Créer</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div><!-- /.modal-content -->
+  </form>
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

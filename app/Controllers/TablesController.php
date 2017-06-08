@@ -22,4 +22,9 @@ class TablesController extends Controller
         $table = new Table($_GET["table"]);
         $table->deleteDatabase();
     }
+
+    public function createTable() {
+        $table = new Table($name[$_POST["nameTable"]]);
+        $table->setFields();
+    }
 }

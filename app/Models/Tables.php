@@ -30,4 +30,12 @@ class Table
         $requete = $pdo->prepare("DROP TABLE $name");
     }
 
+    public function createTable() {
+        $pdo = Bdd::getInstance();
+        $requete = $pdo->prepare("CREATE TABLE $nameTable (`$nameStructure` $type $valueNull )");
+    }
+
+    public function setFields() {
+        
+    }
 }
