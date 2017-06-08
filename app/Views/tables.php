@@ -94,7 +94,7 @@
                   <td><input type="text" name="nameStruct" /></td>
                   <td><select name="type" id="choice">
                     <option value="INT">INT</option>
-                    <option value="VARCHAR">VARCHAR</option></select></td>
+                    <option value="VARCHAR">VARCHAR</option></td>
                     <option value="LONGTEXT">LONGTEXT</option></select></td>
                   <td><input type="text" name="defaultValue"/></td>
                    <td><input type="checkbox" name="null"/></td>

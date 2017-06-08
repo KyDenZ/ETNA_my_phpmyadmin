@@ -58,22 +58,18 @@ class Tables
     public function save()
     {
         $pdo = Bdd::getInstance();
-        $pdo->exec("USE " . $this->bdname);
-        $requete = $pdo->prepare("CREATE TABLE " . $this->name . " (id INT)");
+
+        $pdo->exec("USE ".$this->bdname);
+        $requete = $pdo->prepare("CREATE TABLE ".$this->name." (id INT)");
         var_dump($this->fields[0]->type);
         $requete->execute();
-        // $sql = "ALTER TABLE ".$this->name." ADD COLLUM ".$this->
-        // $sql = "ALTER TABLE".$this->name." CHANGE ".$this-> INT(11) UNSIGNED NOT NULL AUTO_INCREMENT"
-        // ALTER TABLE `test` CHANGE `nom1` `nom1` VARCHAR(11) NOT NULL;
     }
 
     public function saveField()
     {
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
-
-        $end = "UNSIGNED " . checkNull($this->null);
-        $requete = $pdo->prepare('ALTER TABLE ' . $this->bdTable . ' CHANGE ' . $this-> . ' ' . $this->name . ' ' . $this->type . ' ' . $end . ';');
+        $requete = $pdo->prepare('ALTER TABLE ' . $this->fields[0]->bdTable . ' CHANGE ' . $this->fields[0]->name . ' ' . $this->fields[0]->name . ' ' . $this->fields[0]->type . ' ' . $this->fields[0]->null . ';');
         var_dump($requete);
         $requete->execute();
     }

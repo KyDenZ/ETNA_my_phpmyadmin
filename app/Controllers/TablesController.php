@@ -35,6 +35,7 @@ class TablesController extends Controller
         $this->fields = [];
         var_dump($this->fields = []);
         $table->save();
+        $table->saveField();
     }
     }
 }
