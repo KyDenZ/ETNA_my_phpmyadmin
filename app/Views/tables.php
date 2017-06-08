@@ -7,7 +7,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a style="font-weight: 600"><?php echo $this->array["dbname_title"] ?></a></li>
-        <li><a <?php echo "href='".BASE_URL."/data?dbname=".$this->array["dbname_title"]."&table=".$this->array["dbname_title"]."'" ?>>Data</a></li>
         <li><a <?php echo "href='".BASE_URL."/tables?dbname=".$this->array["dbname_title"]."'" ?>>Structure</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
