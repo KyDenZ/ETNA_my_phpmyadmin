@@ -1,0 +1,26 @@
+.container-content {
+    padding: 0px;
+}
+
+.container-content2 {
+    padding: 20px;
+}
+
+nav.navbar-data {
+    position: relative;
+    padding: 0;
+    height: 45px;
+    background: #459ab9 !important;
+    color: #fff !important;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 0;
+    -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.1), 0 1.5px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.1), 0 1.5px 6px rgba(0, 0, 0, 0.1);
+    z-index: 12;
+}
+
+.navbar-data .navbar-nav>li>a {
+    padding-top: 14px;
+}

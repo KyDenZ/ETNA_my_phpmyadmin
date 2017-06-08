@@ -46,21 +46,14 @@
                     <thead>
                     <tr role="row">
                         <th>Nom de la base</th>
-                        <th>Nombre de table</th>
-                        <th style="width: 120px"></th>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php foreach ($this->array["dataBase"] as $dataBases) { ?>
                     <tr role="row" class="odd">
-                        <td class="info-color sorting_1"><strong>ok</strong></td>
-                        <td class="info-color sorting_1">0</td>
-                        <td class="text-center">
-                            <button class="no-button" title="Comparer">
-                                <i class="zmdi zmdi-compare btn-options"></i></button>
-                            <button class="no-button" title="Télécharger"><i class="zmdi zmdi-download btn-options"></i>
-                            </button>
-                        </td>
+                        <td class="info-color sorting_1"><strong><?php echo $dataBases[0] ?></strong></td>
                     </tr>
+                     <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -99,11 +92,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer
-                    </button>
+                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+

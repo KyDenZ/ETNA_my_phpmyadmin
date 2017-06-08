@@ -13,6 +13,7 @@ class IndexController extends Controller
     public function index()
     {
         if (isset($_SESSION["id_user"])) {
+            $this->getDatabase();
             $this->version();
             $this->count();
             include("app/Views/index.php");
@@ -74,5 +75,13 @@ class IndexController extends Controller
         $users = new Users();
         $this->array["count"] = ["databases" => count($dataBase->getDatabases()), "users" => count($users->getUsers()), "sizeBdd" => $dataBase->getSizeAllDatabases()];
     }
+
+     public function getDatabase()
+    {
+        $dataBases = new DataBase();
+        $this->array["dataBase"] = $dataBases->getDatabases();
+    }
+
+
 }
 

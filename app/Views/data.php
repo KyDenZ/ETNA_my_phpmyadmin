@@ -7,15 +7,18 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a style="font-weight: 600"><?php echo $this->array["dbname_title"] ?></a></li>
-        <li><a <?php echo "href='".BASE_URL."/data?dbname=".$this->array["dbname_title"]."&table=".$this->array["dbname_title"]."'" ?>>Data</a></li>
-        <li><a <?php echo "href='".BASE_URL."/tables?dbname=".$this->array["dbname_title"]."'" ?>>Structure</a></li>
+        <li><a <?php echo "href='".BASE_URL."/data?table=".$this->array["table_name"]."&dbname=".$this->array["table_name"]."'" ?>>Data</a></li>
+        <li><a <?php echo "href='".BASE_URL."/tableInfos?table=".$this->array["table_name"]."&dbname=".$this->array["table_name"]."'" ?>>Structure</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container-content2">
-<input type="hidden" value="<?php echo $this->array["dbname_title"] ?>" id="dbname">
+
+<h5><?php echo $this->array["bdd_name"]." > ".$this->array["table_name"] ?></h5>
+<input type="hidden" value="<?php echo $this->array["table_name"] ?>" id="table_name">
+<input type="hidden" value="<?php echo $this->array["bdd_name"] ?>" id="bdd_name">
 
 <div class="row" style="margin-top:20px;">
     <div class="col-md-8 col-sm-12">
@@ -29,15 +32,24 @@
                     <thead>
                     <tr role="row">
                         <th style="width: 20px"><input type="checkbox" onclick="checkAllInTable()"></th>
-                        <th>Table</th>
+                        <th>Nom</th>
+                        <th>Type</th>
+                        <th>Attributs</th>
+                        <th>NULL</th>
+                        <th>Default</th>
                         <th style="width: 120px"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($this->array["tables"] as $tables) { ?>
+                    <?php foreach ($this->array["fields"] as $field) { ?>
                         <tr role="row" class="odd">
-                            <?php echo '<td data-id='.$tables[0].'><input type="checkbox"></td>' ?>
-                            <?php echo '<td class="info-color sorting_1" ><a href="'.BASE_URL.'/tableInfos?table='.$tables[0].'&bdd='.$this->array["dbname_title"].'">'.$tables[0].'</a></td>' ?>
+                            <?php echo '<td data-id='.$field[0].'><input type="checkbox"></td>' ?>
+                            <?php echo '<td class="info-color sorting_1" ><p>'.$field[0].'</p></td>' ?>
+                            <?php echo '<td class="info-color sorting_1"='.$field[0].'><p>'.explode(' ', $field[1])[0].'</p></td>' ?>
+                            <?php $attr = isset(explode(' ', $field[1])[1]) ?  explode(' ', $field[1])[1] : "";
+                            echo '<td class="info-color sorting_1" ><p>'.$attr.'</p></td>' ?>
+                            <?php echo '<td class="info-color sorting_1" ><p>'.$field[2].'</p></td>' ?>
+                            <?php echo '<td class="info-color sorting_1" ><p>'.$field[4].'</p></td>' ?>
                             <td class="text-center">
                                 <button class="no-button" title="Comparer">
                                     <i class="zmdi zmdi-compare btn-options"></i></button>
@@ -69,45 +81,3 @@
             </div>
         </div>
     </div>
-    </div>
-
-<div class="modal fade" id="modal-add-database">
-<div class="modal-dialog">
-<form method="POST" action="<?php echo BASE_URL ?>/createTable">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h4 class="modal-title">Créer la table : <input type="text" name="nameTable" /></td></h4>
-    </div>
-    <div class="modal-body">
-      <table class="table table-striped">
-          <thead>
-          </thead>
-          <tbody class="table">
-              <tr>
-                  <td>Nom</td>
-                  <td>Type</td>
-                  <td>Valeur par défaut</td>
-                  <td>Null</td>
-              </tr>
-              <tr>
-              <input type="hidden" value="<?php echo $this->array["dbname_title"] ?>" name="dbname">
-                  <td><input type="text" name="nameStruct" /></td>
-                  <td><select name="type" id="choice">
-                    <option value="INT">INT</option>
-                    <option value="VARCHAR">VARCHAR</option></select></td>
-                    <option value="LONGTEXT">LONGTEXT</option></select></td>
-                  <td><input type="text" name="defaultValue"/></td>
-                   <td><input type="checkbox" name="null"/></td>
-              </tr>
-          </tbody>
-      </table>
-    </div>
-    <div class="modal-footer">
-    <button type="submit" class="btn btn-success" name="newTable-submit" value="createDatabase">Créer</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </div>
-  </div><!-- /.modal-content -->
-  </form>
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->

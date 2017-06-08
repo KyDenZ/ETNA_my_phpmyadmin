@@ -259,6 +259,7 @@ table.display tbody tr td {
     border-right: 1px solid #999;
     border-left: 1px solid #999;
 }
+
 #nav li a {
     display: block;
     padding: 10px 15px;
@@ -268,13 +269,17 @@ table.display tbody tr td {
     text-decoration: none;
     color: #000;
 }
-#nav li a:hover, #nav li a.active {
+
+#nav li a:hover,
+#nav li a.active {
     background: #999;
     color: #fff;
 }
+
 #nav li ul {
     display: none; // used to hide sub-menus
 }
+
 #nav li ul li a {
     padding: 10px 25px;
     background: #ececec;
@@ -306,7 +311,7 @@ table.display tbody tr td {
     line-height: 40px !important;
 }
 
-#sidebar-wrapper > ul > li.all-databases > div > a > i {
+#sidebar-wrapper>ul>li.all-databases>div>a>i {
     display: inline;
 }
 
@@ -321,7 +326,7 @@ table.display tbody tr td {
     -webkit-box-shadow: 0px 0px 20px 0px #c0c0c0;
     -o-box-shadow: 0px 0px 20px 0px #c0c0c0;
     box-shadow: 0px 0px 20px 0px #c0c0c0;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=NaN, Strength=20);
+    filter: progid: DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=NaN, Strength=20);
 }
 
 .title-action {
@@ -338,4 +343,29 @@ table.display tbody tr td {
 
 .actions-action {
     padding: 10px 20px;
+}
+
+td.info-color.sorting_1 a {
+    color: #333;
+}
+
+table tbody p {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.table>tbody>tr>td {
+    padding: 6px;
+    vertical-align: middle;
+}
+
+table tbody input {
+    border: none;
+    background-color: #f7f4f4;
+    color: #333;
+}
+
+.btn-select-data {
+    float: right;
+    width: 200px;
 }
