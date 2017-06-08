@@ -33,9 +33,23 @@ function editElement() {
     var idEditElement = null;
     var element = null;
     $('input[type=checkbox]:checked').each(function() {
-        idEditTables = $(this).closest("tr").find('td:eq(1) a').html();
-        element = $(this).closest("tr");
-        console.log($(this));
+        $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function() {
+            if ($(this).find("p").length) {
+                var val = $(this).find("p").html();
+                $(this).find("p").remove();
+                $(this).append('<input type="text" value="' + val + '">');
+                $(this).css("padding", "0px");
+                $("#edit").hide();
+                $("#check").show();
+            } else {
+                var val = $(this).find("input").val();
+                $(this).find("input").remove();
+                $(this).append('<p>' + val + '</p>');
+                $(this).css("padding", "6px");
+                $("#edit").show();
+                $("#check").hide();
+            }
+        });
     });
 }
 

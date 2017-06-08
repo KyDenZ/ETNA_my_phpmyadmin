@@ -7,8 +7,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a style="font-weight: 600"><?php echo $this->array["dbname_title"] ?></a></li>
-        <li><a>Data</a></li>
-        <li><a>Structure</a></li>
+        <li><a <?php echo "href='".BASE_URL."/data?dbname=".$this->array["dbname_title"]."&table=".$this->array["dbname_title"]."'" ?>>Data</a></li>
+        <li><a <?php echo "href='".BASE_URL."/tables?dbname=".$this->array["dbname_title"]."'" ?>>Structure</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -59,11 +59,12 @@
         </div>
         <div class="actions-action">
             <div class="row">
-                <div class="col-md-6 text-center icon-action" onclick="deleteElement()">
+                <div class="col-md-6 text-center icon-action" onclick="deleteField()">
                     <i class="zmdi zmdi-delete"></i>
                 </div>
-                <div class="col-md-6 text-center icon-action" onclick="editElement()">
-                    <i class="zmdi zmdi-edit"></i>
+                <div class="col-md-6 text-center icon-action" onclick="editField()">
+                    <i class="zmdi zmdi-edit" id="edit"></i>
+                    <i class="zmdi zmdi-check" id="check" style="display: none"></i>
                 </div>
             </div>
         </div>
