@@ -16,5 +16,6 @@ class TableInfosController extends Controller
         $this->array["table_name"] = $table->name;
         $this->array["fields"] = $table->getFields();
         include("app/Views/tableInfos.php");
+        //var_dump($this->array["fields"]);
     }
 }
