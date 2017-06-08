@@ -70,13 +70,14 @@ class IndexController extends Controller
         }
     }
 
-    public function count() {
+    public function count()
+    {
         $dataBase = new DataBase();
         $users = new Users();
         $this->array["count"] = ["databases" => count($dataBase->getDatabases()), "users" => count($users->getUsers()), "sizeBdd" => $dataBase->getSizeAllDatabases()];
     }
 
-     public function getDatabase()
+    public function getDatabase()
     {
         $dataBases = new DataBase();
         $this->array["dataBase"] = $dataBases->getDatabases();

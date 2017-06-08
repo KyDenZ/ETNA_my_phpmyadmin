@@ -50,10 +50,10 @@
                     </thead>
                     <tbody>
                     <?php foreach ($this->array["dataBase"] as $dataBases) { ?>
-                    <tr role="row" class="odd">
-                        <td class="info-color sorting_1"><strong><?php echo $dataBases[0] ?></strong></td>
-                    </tr>
-                     <?php } ?>
+                        <tr role="row" class="odd">
+                            <td class="info-color sorting_1"><strong><?php echo $dataBases[0] ?></strong></td>
+                        </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -92,7 +92,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer</button>
+                    <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer
+                    </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </form>

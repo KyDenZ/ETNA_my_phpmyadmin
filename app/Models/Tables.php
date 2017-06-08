@@ -21,51 +21,60 @@ class Tables
     public function getFields($name = null)
     {
         $pdo = Bdd::getInstance();
-        $pdo->exec("USE ".$this->bdname);
-        $requete = $pdo->prepare('SHOW COLUMNS FROM '.$this->name);
+        $pdo->exec("USE " . $this->bdname);
+        $requete = $pdo->prepare('SHOW COLUMNS FROM ' . $this->name);
         $requete->execute();
         return $requete->fetchAll();
     }
 
-    public function deleteTable() {
+    public function getData()
+    {
         $pdo = Bdd::getInstance();
-        $pdo->exec("USE ".$this->bdname);
-        $requete = $pdo->prepare("DROP TABLE ".$this->name);
+        $pdo->exec("USE " . $this->bdname);
+        $requete = $pdo->prepare('SELECT * FROM ' . $this->name);
+        $requete->execute();
+        return $requete->fetchAll();
+    }
+
+    public function deleteTable()
+    {
+        $pdo = Bdd::getInstance();
+        $pdo->exec("USE " . $this->bdname);
+        $requete = $pdo->prepare("DROP TABLE " . $this->name);
         $requete->execute();
     }
 
-    public function createTable() {
+    public function createTable()
+    {
         $pdo = Bdd::getInstance();
-        $requete = $pdo->prepare("CREATE TABLE".$name);
+        $requete = $pdo->prepare("CREATE TABLE" . $name);
     }
 
-    public function setField($field) {
+    public function setField($field)
+    {
         $this->fields[] = $field;
     }
 
-     public function save(){
+    public function save()
+    {
         $pdo = Bdd::getInstance();
+
         $pdo->exec("USE ".$this->bdname);
         $requete = $pdo->prepare("CREATE TABLE ".$this->name." (id INT)");
         var_dump($this->fields[0]->type);
         $requete->execute();
-        // $sql = "ALTER TABLE ".$this->name." ADD COLLUM ".$this->
-        // $sql = "ALTER TABLE".$this->name." CHANGE ".$this-> INT(11) UNSIGNED NOT NULL AUTO_INCREMENT"
-        // ALTER TABLE `test` CHANGE `nom1` `nom1` VARCHAR(11) NOT NULL;
     }
 
-     public function saveField()
+    public function saveField()
     {
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
-        
-            $end = "UNSIGNED " . checkNull($this->null);
-        $requete = $pdo->prepare('ALTER TABLE ' . $this->bdTable . ' CHANGE ' . $this-> . ' ' . $this->name . ' ' . $this->type . ' ' . $end . ';');
+        $requete = $pdo->prepare('ALTER TABLE ' . $this->fields[0]->bdTable . ' CHANGE ' . $this->fields[0]->name . ' ' . $this->fields[0]->name . ' ' . $this->fields[0]->type . ' ' . $this->fields[0]->null . ';');
         var_dump($requete);
         $requete->execute();
     }
 
     // array(0) { } array(1) { [0]=> object(Models\Fields)#18 (6) { ["name"]=> string(3) "nom" ["bdname"]=> string(13) "my_phpmyadmin" ["bdTable"]=> string(5) "table" ["type"]=> string(3) "INT" ["valeurDefault"]=> string(18) "valeur par défaut" ["null"]=> string(8) "NOT NULL" } }
 
-    
+
 }
