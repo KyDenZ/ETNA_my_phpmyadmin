@@ -21,7 +21,14 @@ class Fields
         $this->bdTable = $bdTable;
         $this->type = $type;
         $this->valeurDefault = $valeurDefault;
-        $this->null = $null;
+        $this->null = $this->checkNull($null);
+    }
+
+    public function checkNull($null) : string{
+        if ($_POST["null"] == "on")
+            return "NULL";
+        else
+            return "NOT NULL";
     }
 
     public function updateField($newName = null)

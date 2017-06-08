@@ -41,15 +41,14 @@ class Tables
 
     public function setField($field) {
         $this->fields[] = $field;
-        var_dump($this->fields);
     }
 
      public function save(){
         $pdo = Bdd::getInstance();
         $pdo->exec("USE ".$this->bdname);
         $sql = "CREATE TABLE ".$this->name." (id INT)";
-        $sql = "ALTER TABLE ".$this->name." ADD COLLUM ".$this->
-        var_dump($sql);
+        // $sql = "ALTER TABLE ".$this->name." ADD COLLUM ".$this->
+        //$sql = "ALTER TABLE `author_tweet` CHANGE `id_author_tweet` `id_author_tweet` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT"
         $pdo->exec($sql);
     }
 
