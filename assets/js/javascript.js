@@ -30,5 +30,32 @@ function deleteElement() {
 }
 
 function editElement() {
-    alert('edit');
+    var idEditElement = null;
+    var element = null;
+    $('input[type=checkbox]:checked').each(function() {
+        idEditTables = $(this).closest("td").data("id");
+        element = $(this).closest("tr");
+        console.log($(this));
+    });
+}
+
+function editField() {
+    var idEditElement = null;
+    var element = null;
+    $('input[type=checkbox]:checked').each(function() {
+        idEditTables = $(this).closest("td").data("id");
+        $(this).closest("tr").find("td:not(:eq(0)):not(:last-child)").each(function() {
+            if ($(this).find("p").length) {
+                var val = $(this).find("p").html();
+                $(this).find("p").remove();
+                $(this).append('<input type="text" value="' + val + '">');
+                $(this).css("padding", "0px 4px 0px 4px");
+            } else {
+                var val = $(this).find("input").val();
+                $(this).find("input").remove();
+                $(this).append('<p>' + val + '</p>');
+                $(this).css("padding", "6px");
+            }
+        });
+    });
 }

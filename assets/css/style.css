@@ -348,3 +348,18 @@ table.display tbody tr td {
 td.info-color.sorting_1 a {
     color: #333;
 }
+
+table tbody p {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.table>tbody>tr>td {
+    padding: 6px;
+}
+
+table tbody input {
+    border: none;
+    background-color: #f7f4f4;
+    color: #333;
+}
