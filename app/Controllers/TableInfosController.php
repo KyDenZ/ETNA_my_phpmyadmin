@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Lib\Bdd;
 use Models\Tables;
+use Models\Fields;
 
 class TableInfosController extends Controller
 {
@@ -17,5 +18,12 @@ class TableInfosController extends Controller
         $this->array["fields"] = $table->getFields();
         include("app/Views/tableInfos.php");
         //var_dump($this->array["fields"]);
+    }
+
+    public function editTable()
+    {
+        $field = new Fields($_POST["field"], $_POST["dbname"], $_POST["tableName"], $_POST["type"], $_POST["isNull"], $_POST["defineDefault"]);
+        var_dump($field);
+        $field->updateField($_POST["oldName"]);
     }
 }

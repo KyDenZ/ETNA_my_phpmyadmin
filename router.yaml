@@ -10,4 +10,4 @@ routes:
   createTable: [/createTable, Controllers\TablesController.createTable, POST]
   tableInfos: [/tableInfos, Controllers\TableInfosController.index, GET]
   deleteTable: [/deleteTable, Controllers\TablesController.deleteTable, GET]
-
+  editTable: [/editTable, Controllers\TableInfosController.editTable, POST]

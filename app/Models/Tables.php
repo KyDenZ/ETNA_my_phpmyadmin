@@ -48,6 +48,7 @@ class Tables
         $pdo->exec("USE ".$this->bdname);
         $sql = "CREATE TABLE ".$this->name." (id INT)";
         // $sql = "ALTER TABLE ".$this->name." ADD COLLUM ".$this->
+        //$sql = "ALTER TABLE `author_tweet` CHANGE `id_author_tweet` `id_author_tweet` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT"
         $pdo->exec($sql);
     }
 

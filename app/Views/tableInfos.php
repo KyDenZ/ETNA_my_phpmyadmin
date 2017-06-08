@@ -1,5 +1,6 @@
 <h5><?php echo $this->array["bdd_name"]." > ".$this->array["table_name"] ?></h5>
 <input type="hidden" value="<?php echo $this->array["table_name"] ?>" id="table_name">
+<input type="hidden" value="<?php echo $this->array["bdd_name"] ?>" id="bdd_name">
 
 <div class="row" style="margin-top:20px;">
     <div class="col-md-8 col-sm-12">
@@ -26,7 +27,7 @@
                         <tr role="row" class="odd">
                             <?php echo '<td data-id='.$field[0].'><input type="checkbox"></td>' ?>
                             <?php echo '<td class="info-color sorting_1" ><p>'.$field[0].'</p></td>' ?>
-                            <?php echo '<td class="info-color sorting_1" ><p>'.explode(' ', $field[1])[0].'</p></td>' ?>
+                            <?php echo '<td class="info-color sorting_1"='.$field[0].'><p>'.explode(' ', $field[1])[0].'</p></td>' ?>
                             <?php $attr = isset(explode(' ', $field[1])[1]) ?  explode(' ', $field[1])[1] : "";
                             echo '<td class="info-color sorting_1" ><p>'.$attr.'</p></td>' ?>
                             <?php echo '<td class="info-color sorting_1" ><p>'.$field[2].'</p></td>' ?>
@@ -56,7 +57,8 @@
                     <i class="zmdi zmdi-delete"></i>
                 </div>
                 <div class="col-md-6 text-center icon-action" onclick="editField()">
-                    <i class="zmdi zmdi-edit"></i>
+                    <i class="zmdi zmdi-edit" id="edit"></i>
+                    <i class="zmdi zmdi-check" id="check" style="display: none"></i>
                 </div>
             </div>
         </div>
