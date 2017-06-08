@@ -26,7 +26,7 @@ class Fields
 
     public function checkNull($null) : string{
         if ($null == "on" || $null == "YES")
-            return "NULL";
+            return "NULL DEFAULT ". $this->valeurDefault;
         else
             return "NOT NULL";
     }
@@ -36,12 +36,10 @@ class Fields
         $newName = $newName ? $newName : $this->name;
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
-        if ($this->getType() == "LONGTEXT")
-            $end = "CHARACTER SET latin1 COLLATE latin1_swedish_ci ". checkNull($this->null) ." DEFAULT ". $this->valeurDefault;
-        else if ($this->getType() == "VARCHAR")
-            $end = "UNSIGNED " . checkNull($this->null);
+        if ($this->getType() == "LONGTEXT" && $this->getType() == "VARCHAR")
+            $end = "CHARACTER SET latin1 COLLATE latin1_swedish_ci ". $this->checkNull($this->null);
         else if ($this->getType() == "INT")
-            $end = "UNSIGNED " . checkNull($this->null);
+            $end = "UNSIGNED " . $this->checkNull($this->null);
         $requete = $pdo->prepare('ALTER TABLE ' . $this->bdTable . ' CHANGE ' . $newName . ' ' . $this->name . ' ' . $this->type . ' ' . $end . ';');
         var_dump($requete);
         $requete->execute();
@@ -70,6 +68,4 @@ class Fields
     }
 
 }
-
-// ALTER TABLE `author_tweet` CHANGE `tweet_author_id2` `tweet_author_id` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
 
