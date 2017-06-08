@@ -1,4 +1,5 @@
-<h3><?php echo $this->array["table_title"] ?></h3>
+<h3><?php echo $this->array["dbname_title"] ?></h3>
+<input type="hidden" value="<?php echo $this->array["dbname_title"] ?>" id="dbname">
 
 <div class="row" style="margin-top:20px;">
     <div class="col-md-8 col-sm-12">
@@ -20,7 +21,7 @@
                     <?php foreach ($this->array["tables"] as $tables) { ?>
                         <tr role="row" class="odd">
                             <?php echo '<td data-id='.$tables[0].'><input type="checkbox"></td>' ?>
-                            <?php echo '<td class="info-color sorting_1">'.$tables[0].'</td>' ?>
+                            <?php echo '<td class="info-color sorting_1" ><a href="'.BASE_URL.'/tableInfos?table='.$tables[0].'&bdd='.$this->array["dbname_title"].'">'.$tables[0].'</a></td>' ?>
                             <td class="text-center">
                                 <button class="no-button" title="Comparer">
                                     <i class="zmdi zmdi-compare btn-options"></i></button>
@@ -72,12 +73,13 @@
                   <td>Null</td>
               </tr>
               <tr>
+              <input type="hidden" value="<?php echo $this->array["dbname_title"] ?>" name="dbname">
                   <td><input type="text" name="nameStruct" /></td>
                   <td><select name="type" id="choice">
                     <option value="INT">INT</option>
                     <option value="VARCHAR">VARCHAR</option></select></td>
-                  <td><input type="text" /></td>
-                   <td><input type="checkbox" name="" value="checked" /></td>
+                  <td><input type="text" name="defaultValue"/></td>
+                   <td><input type="checkbox" name="null" value="checked" /></td>
               </tr>
           </tbody>
       </table>

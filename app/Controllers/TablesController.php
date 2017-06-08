@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Models\DataBase;
+use Models\Tables;
 use Lib\Bdd;
 
 class TablesController extends Controller
@@ -11,20 +12,24 @@ class TablesController extends Controller
 
     public function index()
     {
-        $bdd = new DataBase($_GET["table"]);
-        $this->array["table_title"] = $bdd->name;
+        $bdd = new DataBase($_GET["dbname"]);
+        $this->array["dbname_title"] = $bdd->name;
         $this->array["tables"] = $bdd->getTables();
         include("app/Views/tables.php");
     }
 
-    public function deleteDatabase()
+    public function deleteTable()
     {
-        $table = new Table($_GET["table"]);
-        $table->deleteDatabase();
+        $table = new Tables($_GET["table"], $_GET["dbname"]);
+        $table->deleteTable();
     }
 
     public function createTable() {
-        $table = new Table($name[$_POST["nameTable"]]);
-        $table->setFields();
+        if (isset($_POST['newTable-submit']) && !empty($_POST["nameTable"])) {
+        $table = new Tables($_POST["nameTable"], $_POST["dbname"]);
+        $field = new Fields(g$nameField, $bdnameField, $namestructField, $typeField, $nullField);
+        $table->setField($field);
+        $table->save();
+    }
     }
 }
