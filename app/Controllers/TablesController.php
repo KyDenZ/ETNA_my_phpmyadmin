@@ -32,7 +32,8 @@ class TablesController extends Controller
         $table = new Tables($_POST["nameTable"], $_POST["dbname"]);
         $field = new Fields($_POST["nameStruct"], $_POST["dbname"], $_POST["nameTable"], $_POST["type"], $_POST["defaultValue"], $_POST["null"]);
         $table->setField($field);
-        var_dump($table);
+        $this->fields = [];
+        var_dump($this->fields = []);
         $table->save();
     }
     }
