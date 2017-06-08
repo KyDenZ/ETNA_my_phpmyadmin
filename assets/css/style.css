@@ -364,3 +364,8 @@ table tbody input {
     background-color: #f7f4f4;
     color: #333;
 }
+
+.btn-select-data {
+    float: right;
+    width: 200px;
+}

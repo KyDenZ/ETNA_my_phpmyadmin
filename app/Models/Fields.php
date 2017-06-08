@@ -24,9 +24,10 @@ class Fields
         $this->null = $this->checkNull($null);
     }
 
-    public function checkNull($null) : string{
+    public function checkNull($null): string
+    {
         if ($null == "on" || $null == "YES")
-            return "NULL DEFAULT ". $this->valeurDefault;
+            return "NULL DEFAULT " . $this->valeurDefault;
         else
             return "NOT NULL";
     }
@@ -37,7 +38,7 @@ class Fields
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
         if ($this->getType() == "LONGTEXT" && $this->getType() == "VARCHAR")
-            $end = "CHARACTER SET latin1 COLLATE latin1_swedish_ci ". $this->checkNull($this->null);
+            $end = "CHARACTER SET latin1 COLLATE latin1_swedish_ci " . $this->checkNull($this->null);
         else if ($this->getType() == "INT")
             $end = "UNSIGNED " . $this->checkNull($this->null);
         $requete = $pdo->prepare('ALTER TABLE ' . $this->bdTable . ' CHANGE ' . $newName . ' ' . $this->name . ' ' . $this->type . ' ' . $end . ';');

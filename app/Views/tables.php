@@ -1,4 +1,20 @@
-<h3><?php echo $this->array["dbname_title"] ?></h3>
+<link rel="stylesheet" href="/assets/css/style2.css">
+
+<nav class="navbar-data navbar-default">
+  <div class="container-fluid">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a style="font-weight: 600"><?php echo $this->array["dbname_title"] ?></a></li>
+        <li><a>Data</a></li>
+        <li><a>Structure</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-content2">
 <input type="hidden" value="<?php echo $this->array["dbname_title"] ?>" id="dbname">
 
 <div class="row" style="margin-top:20px;">
@@ -51,6 +67,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 <div class="modal fade" id="modal-add-database">

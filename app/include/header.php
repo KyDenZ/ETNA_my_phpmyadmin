@@ -45,7 +45,7 @@
                     </div>
                     <div class="collapse" <?php echo "id='$bdd'" ?> >
                         <?php foreach ($tables as $table) { ?>
-                            <a href="#" class="tables-bdd"><?php echo $table ?></a>
+                            <a <?php echo "href='".BASE_URL."/tableInfos?table=".$table."&bdd=".$bdd."'" ?> class="tables-bdd"><?php echo $table ?></a>
                         <?php }
                         ?> </div>
                     <?php
