@@ -37,12 +37,12 @@ class Fields
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
         if ($this->getType() == "LONGTEXT")
-            $end = "CHARACTER";
+            $end = "CHARACTER SET latin1 COLLATE latin1_swedish_ci ". $this->null ." DEFAULT ". $this->valeurDefault;
         else if ($this->getType() == "VARCHAR")
-            $end = "UNSIGNED NOT NULL AUTO_INCREMENT";
+            $end = "UNSIGNED " + $this->null;
         else if ($this->getType() == "INT")
-            $end = "UNSIGNED NOT NULL AUTO_INCREMENT";
-        $requete = $pdo->prepare('ALTER TABLE ' . $this->bdTable . ' CHANGE ' . $this->name . ' ' . $newName . ' ' . $this->type . ' ' . $end . ';');
+            $end = "UNSIGNED " + $this->null;
+        $requete = $pdo->prepare('ALTER TABLE ' . $this->bdTable . ' CHANGE ' . $newName . ' ' . $this->name . ' ' . $this->type . ' ' . $end . ';');
         var_dump($requete);
         $requete->execute();
     }
@@ -71,5 +71,5 @@ class Fields
 
 }
 
-// ALTER TABLE author_tweet CHANGE id_author_tweet id_author_tweet int(11) SET latin1 COLLATE latin1_swedish_ci NO
-// ALTER TABLE `author_tweet` CHANGE `id_author_tweet` `id_author_tweet` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+// ALTER TABLE `author_tweet` CHANGE `tweet_author_id2` `tweet_author_id` LONGTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+
