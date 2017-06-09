@@ -56,9 +56,8 @@ class DataBase
     public function deleteDatabase()
     {
         $pdo = Bdd::getInstance();
-        $requete = $pdo->prepare("DROP DATABASE " .$this->bdname);
+        $requete = $pdo->prepare("DROP DATABASE " .$this->name);
         $requete->execute();
-        var_dump($this->bdname);
     }
     //array_collection<database>
 }
