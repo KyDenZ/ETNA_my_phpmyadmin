@@ -27,7 +27,6 @@
                     <tr role="row">
                         <th style="width: 20px"><input type="checkbox" onclick="checkAllInTable()"></th>
                         <th>Table</th>
-                        <th style="width: 120px"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,13 +34,6 @@
                         <tr role="row" class="odd">
                             <?php echo '<td data-id='.$tables[0].'><input type="checkbox"></td>' ?>
                             <?php echo '<td class="info-color sorting_1" ><a href="'.BASE_URL.'/tableInfos?table='.$tables[0].'&bdd='.$this->array["dbname_title"].'">'.$tables[0].'</a></td>' ?>
-                            <td class="text-center">
-                                <button class="no-button" title="Comparer">
-                                    <i class="zmdi zmdi-compare btn-options"></i></button>
-                                <button class="no-button" title="Télécharger"><i
-                                            class="zmdi zmdi-download btn-options"></i>
-                                </button>
-                            </td>
                         </tr>
                     <?php } ?>
                     </tbody>
@@ -55,7 +47,7 @@
         </div>
         <div class="actions-action">
             <div class="row">
-                <div class="col-md-6 text-center icon-action" onclick="deleteField()">
+                <div class="col-md-6 text-center icon-action" onclick="deleteElement()">
                     <i class="zmdi zmdi-delete"></i>
                 </div>
                 <div class="col-md-6 text-center icon-action" onclick="editField()">
@@ -91,8 +83,7 @@
                   <td><input type="text" name="nameStruct" /></td>
                   <td><select name="type" id="choice">
                     <option value="INT">INT</option>
-                    <option value="VARCHAR">VARCHAR</option></td>
-                    <option value="LONGTEXT">LONGTEXT</option></select></td>
+                    <option value="VARCHAR">VARCHAR</option></select></td>
                   <td><input type="text" name="defaultValue"/></td>
                    <td><input type="checkbox" name="null"/></td>
               </tr>
