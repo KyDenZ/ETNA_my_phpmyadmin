@@ -21,6 +21,8 @@ class SidemenuController extends Controller
                 $table = $table[0];
                 $rsltBdd[$bdd][] = $table;
             }
+            if (!isset($rsltBdd[$bdd]))
+                $rsltBdd[$bdd] = "";
         }
         $this->arrayBdd = $rsltBdd;
     }

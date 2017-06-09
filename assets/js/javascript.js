@@ -34,6 +34,7 @@ function editElement() {
     var element = null;
     $('input[type=checkbox]:checked').each(function () {
         $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function () {
+
             if ($(this).find("p").length) {
                 var val = $(this).find("p").html();
                 $(this).find("p").remove();
@@ -98,8 +99,9 @@ function valideField() {
                 type: "POST",
                 dataType: "json",
                 data: data,
-                success: function (data) {
-                    $(this).closest("tr").find("td").data("id") = "ok"
+
+                success: function(data) {
+                    $(this).closest("tr").find('td:eq(1) p').html()
                 },
                 error: function () {
                     console.log("error");
@@ -110,27 +112,37 @@ function valideField() {
 }
 
 
-function deleteDatabase() {
-    var idDeleteDatabase = null;
-    var element = null;
-    $('.no-button2').click(function () {
-        console.log($(this));
-        idDeleteTables = $(this).closest("tr").find('td:eq(1) a').html();
-        element = $(this).closest("tr");
-        if (idDeleteDatabase) {
-            $.ajax({
-                url: BASE_URL + "/editDatabase",
-                timeout: 4000,
-                type: "POST",
-                dataType: "json",
-                data: data,
-                success: function (data) {
-                    $(this).closest("tr").find("td").data("id") = "ok"
-                },
-                error: function () {
-                    console.log("error");
-                }
-            });
-        }
-    });
+function deleteDatabase(obj) {
+    
+       var dbName = $(obj).closest("tr").find("td:eq(0) strong").html();
+       console.log($(obj).closest("tr").find("td:eq(0) strong").html());
+       if (dbName) {
+           $.ajax({
+               url: BASE_URL + "/deleteDatabases",
+               timeout: 4000,
+               type: "POST",
+               dataType: "json",
+               data: { "dbname" : dbName }
+           })
+       }
+}
+
+function sqlRequest() {
+    var sql = $("#requestSQL").val();
+    console.log(sql);
+    if (sql) {
+        $.ajax({
+            url: BASE_URL + "/sql",
+            timeout: 4000,
+            type: "POST",
+            dataType: "json",
+            data: { "requestSQL": sql },
+            success: function(data) {
+                $("#rslt-sql").html(data);
+            },
+            error: function() {
+                console.log("error");
+            }
+        });
+    }
 }

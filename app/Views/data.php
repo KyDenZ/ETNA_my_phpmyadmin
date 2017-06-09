@@ -49,10 +49,10 @@
                                     echo '<td class="info-color sorting_1"><p>'.$dataKey.'</p></td>'; 
                                 } ?>
                             <td class="text-center">
-                                <button class="no-button" title="Comparer">
-                                    <i class="zmdi zmdi-compare btn-options"></i></button>
-                                <button class="no-button" title="Télécharger"><i
-                                            class="zmdi zmdi-download btn-options"></i>
+                                <button class="no-button" title="Editer">
+                                    <i class="zmdi zmdi-edit"></i></button>
+                                <button class="no-button" title="Supprimer"><i
+                                            class="zmdi zmdi-delete"></i>
                                 </button>
                             </td>
                         </tr>

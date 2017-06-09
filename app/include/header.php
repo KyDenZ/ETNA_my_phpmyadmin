@@ -70,10 +70,12 @@
                 <a class="navbar-brand" href="#"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <!--                <li class="active">Results for -->
-
-                </ul>
+                <?php if (isset($_SESSION["id_user"])) { ?>
+                        <ul class="nav navbar-nav">
+                            <li><a data-toggle="modal" data-target="#modal-sql"><i class="zmdi zmdi-file"></i> SQL</a></li>
+                        </ul>
+                    <?php } ?>
+                
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($_SESSION["id_user"])) { ?>
                         <ul class="nav navbar-nav navbar-right">
