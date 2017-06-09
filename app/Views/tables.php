@@ -47,7 +47,7 @@
         </div>
         <div class="actions-action">
             <div class="row">
-                <div class="col-md-6 text-center icon-action" onclick="deleteField()">
+                <div class="col-md-6 text-center icon-action" onclick="deleteElement()">
                     <i class="zmdi zmdi-delete"></i>
                 </div>
                 <div class="col-md-6 text-center icon-action" onclick="editField()">
