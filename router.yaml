@@ -11,3 +11,4 @@ routes:
   tableInfos: [/tableInfos, Controllers\TableInfosController.index, GET]
   deleteTable: [/deleteTable, Controllers\TablesController.deleteTable, GET]
   editTable: [/editTable, Controllers\TableInfosController.editTable, POST]
+  data: [/data, Controllers\DataController.index, GET]

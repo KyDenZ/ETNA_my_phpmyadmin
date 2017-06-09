@@ -1,7 +1,7 @@
 const BASE_URL = new URL(location).origin + "/ETNA_my_phpmyadmin";
 
 function checkAllInTable() {
-    $("#table1 tbody input[type='checkbox']").each(function() {
+    $("#table1 tbody input[type='checkbox']").each(function () {
         $(this).trigger('click');
     });
 }
@@ -9,7 +9,7 @@ function checkAllInTable() {
 function deleteElement() {
     var idDeleteTables = null;
     var element = null;
-    $('input[type=checkbox]:checked').each(function() {
+    $('input[type=checkbox]:checked').each(function () {
         idDeleteTables = $(this).closest("tr").find('td:eq(1) a').html();
         element = $(this).closest("tr");
         if (idDeleteTables) {
@@ -18,10 +18,10 @@ function deleteElement() {
                 timeout: 4000,
                 type: "GET",
                 data: "table=" + idDeleteTables + "&dbname=" + $("#dbname").val(),
-                success: function(data) {
+                success: function (data) {
                     element.remove();
                 },
-                error: function() {
+                error: function () {
                     console.log("error");
                 }
             });
@@ -32,8 +32,8 @@ function deleteElement() {
 function editElement() {
     var idEditElement = null;
     var element = null;
-    $('input[type=checkbox]:checked').each(function() {
-        $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function() {
+    $('input[type=checkbox]:checked').each(function () {
+        $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function () {
             if ($(this).find("p").length) {
                 var val = $(this).find("p").html();
                 $(this).find("p").remove();
@@ -54,8 +54,8 @@ function editElement() {
 }
 
 function editField() {
-    $('input[type=checkbox]:checked').each(function() {
-        $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function() {
+    $('input[type=checkbox]:checked').each(function () {
+        $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function () {
             if ($(this).find("p").length) {
                 var val = $(this).find("p").html();
                 $(this).find("p").remove();
@@ -79,7 +79,7 @@ function editField() {
 
 function valideField() {
     var dbname = $("#bdd_name").val();
-    $('tbody input[type=checkbox]:checked').each(function() {
+    $('tbody input[type=checkbox]:checked').each(function () {
         var data = {
             "oldName": $(this).closest("tr").find("td").data("id"),
             "field": $(this).closest("tr").find('td:eq(1) p').html(),
@@ -98,10 +98,36 @@ function valideField() {
                 type: "POST",
                 dataType: "json",
                 data: data,
-                success: function(data) {
+                success: function (data) {
                     $(this).closest("tr").find("td").data("id") = "ok"
                 },
-                error: function() {
+                error: function () {
+                    console.log("error");
+                }
+            });
+        }
+    });
+}
+
+
+function deleteDatabase() {
+    var idDeleteDatabase = null;
+    var element = null;
+    $('.no-button2').click(function () {
+        console.log($(this));
+        idDeleteTables = $(this).closest("tr").find('td:eq(1) a').html();
+        element = $(this).closest("tr");
+        if (idDeleteDatabase) {
+            $.ajax({
+                url: BASE_URL + "/editDatabase",
+                timeout: 4000,
+                type: "POST",
+                dataType: "json",
+                data: data,
+                success: function (data) {
+                    $(this).closest("tr").find("td").data("id") = "ok"
+                },
+                error: function () {
                     console.log("error");
                 }
             });

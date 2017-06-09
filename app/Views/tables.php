@@ -7,7 +7,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a style="font-weight: 600"><?php echo $this->array["dbname_title"] ?></a></li>
-        <li><a <?php echo "href='".BASE_URL."/tables?dbname=".$this->array["dbname_title"]."'" ?>>Structure</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -17,7 +16,6 @@
 <input type="hidden" value="<?php echo $this->array["dbname_title"] ?>" id="dbname">
 
 <div class="row" style="margin-top:20px;">
-    <div class="col-md-8 col-sm-12">
         <div class="data-info">
             <div id="table1_wrapper" class="dataTables_wrapper no-footer">
                 <div class="pull-right white btn-add" data-toggle="modal" data-target="#modal-add-database"><i
@@ -49,7 +47,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
 
     <div class="action-table">
