@@ -11,10 +11,11 @@ class SqlController extends Controller
     private $array = [];
 
     public function request()
-    {   var_dump($_POST['requestSQL']);
+    {
         if (isset($_POST['requestSQL'])) {
             try {
 
+                $html = "";
                 $pdo = Bdd::getInstance();
                 $pdo->exec("USE my_phpmyadmin");
                 $result = $pdo->prepare($_POST['requestSQL']);
