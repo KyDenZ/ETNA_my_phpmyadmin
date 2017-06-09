@@ -61,7 +61,6 @@ class Tables
 
         $pdo->exec("USE ".$this->bdname);
         $requete = $pdo->prepare("CREATE TABLE ".$this->name." (id INT)");
-        var_dump($this->fields[0]->type);
         $requete->execute();
     }
 
@@ -70,8 +69,6 @@ class Tables
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
         $requete = $pdo->prepare('ALTER TABLE '.$this->fields[0]->bdTable.' ADD '.$this->fields[0]->name.' '.$this->fields[0]->type.'('.$this->fields[0]->valeurDefault.') '. $this->fields[0]->null.';');
-        var_dump($this->fields[0]->valeurDefault);
-        var_dump($requete);
         $requete->execute();
     }
 }

@@ -27,7 +27,6 @@
                     <tr role="row">
                         <th style="width: 20px"><input type="checkbox" onclick="checkAllInTable()"></th>
                         <th>Table</th>
-                        <th style="width: 120px"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,13 +34,6 @@
                         <tr role="row" class="odd">
                             <?php echo '<td data-id='.$tables[0].'><input type="checkbox"></td>' ?>
                             <?php echo '<td class="info-color sorting_1" ><a href="'.BASE_URL.'/tableInfos?table='.$tables[0].'&bdd='.$this->array["dbname_title"].'">'.$tables[0].'</a></td>' ?>
-                            <td class="text-center">
-                                <button class="no-button" title="Comparer">
-                                    <i class="zmdi zmdi-compare btn-options"></i></button>
-                                <button class="no-button" title="Télécharger"><i
-                                            class="zmdi zmdi-download btn-options"></i>
-                                </button>
-                            </td>
                         </tr>
                     <?php } ?>
                     </tbody>

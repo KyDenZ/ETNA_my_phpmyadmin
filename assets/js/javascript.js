@@ -34,6 +34,7 @@ function editElement() {
     var element = null;
     $('input[type=checkbox]:checked').each(function() {
         $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function() {
+            console.log($(this));
             if ($(this).find("p").length) {
                 var val = $(this).find("p").html();
                 $(this).find("p").remove();
