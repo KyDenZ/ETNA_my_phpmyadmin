@@ -13,3 +13,4 @@ routes:
   editTable: [/editTable, Controllers\TableInfosController.editTable, POST]
   data: [/data, Controllers\DataController.index, GET]
   sql: [/sql, Controllers\SqlController.request, POST]
+  deleteDatabases: [/deleteDatabases, Controllers\IndexController.deleteDatabases, POST]

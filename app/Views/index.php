@@ -46,6 +46,7 @@
                     <thead>
                     <tr role="row">
                         <th>Nom de la base</th>
+                    <td></td>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,10 +54,8 @@
                         <tr role="row" class="odd">
                             <td class="info-color sorting_1"><strong><?php echo $dataBases[0] ?></strong></td>
                         <td class="text-center">
-                                <button class="no-button" title="Comparer">
-                                    <i class="zmdi zmdi-compare btn-options"></i></button>
-                                <button class="no-button" title="Télécharger"><i
-                                            class="zmdi zmdi-download btn-options"></i>
+                                <button class="no-button2" onclick="deleteDatabase(this)" title="Télécharger">
+                                    <i class="zmdi zmdi-delete"></i>
                                 </button>
                             </td>
                         </tr>

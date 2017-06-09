@@ -53,5 +53,11 @@ class DataBase
         return $sizeData;
     }
 
+    public function deleteDatabase()
+    {
+        $pdo = Bdd::getInstance();
+        $requete = $pdo->prepare("DROP DATABASE " .$this->name);
+        $requete->execute();
+    }
     //array_collection<database>
 }

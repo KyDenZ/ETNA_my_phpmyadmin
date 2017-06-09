@@ -34,7 +34,7 @@ function editElement() {
     var element = null;
     $('input[type=checkbox]:checked').each(function() {
         $(this).closest("tr").find("td:not(:eq(0), :eq(3)):not(:last-child)").each(function() {
-            console.log($(this));
+
             if ($(this).find("p").length) {
                 var val = $(this).find("p").html();
                 $(this).find("p").remove();
@@ -99,6 +99,7 @@ function valideField() {
                 type: "POST",
                 dataType: "json",
                 data: data,
+
                 success: function(data) {
                     $(this).closest("tr").find('td:eq(1) p').html()
                 },
@@ -108,6 +109,23 @@ function valideField() {
             });
         }
     });
+}
+
+
+function deleteDatabase(obj) {
+
+    var dbName = $(obj).closest("tr").find("td:eq(0) strong").html();
+    if (dbName) {
+        $.ajax({
+            url: BASE_URL + "/deleteDatabases",
+            timeout: 4000,
+            type: "POST",
+            data: { "dbname": dbName },
+            success: function(data) {
+                console.log(data);
+            }
+        });
+    }
 }
 
 function sqlRequest() {

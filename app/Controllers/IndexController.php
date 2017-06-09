@@ -70,6 +70,12 @@ class IndexController extends Controller
         }
     }
 
+    public function deleteDatabases()
+    {
+        $dataBase = new DataBase($_POST["dbname"]);
+        $dataBase->deleteDatabase();
+    }
+
     public function count()
     {
         $dataBase = new DataBase();
