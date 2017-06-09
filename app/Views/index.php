@@ -52,8 +52,17 @@
                     <?php foreach ($this->array["dataBase"] as $dataBases) { ?>
                         <tr role="row" class="odd">
                             <td class="info-color sorting_1"><strong><?php echo $dataBases[0] ?></strong></td>
+                        <td class="text-center">
+                                <button class="no-button" title="Comparer">
+                                    <i class="zmdi zmdi-compare btn-options"></i></button>
+                                <button class="no-button" title="Télécharger"><i
+                                            class="zmdi zmdi-download btn-options"></i>
+                                </button>
+                            </td>
                         </tr>
+                        
                     <?php } ?>
+                    
                     </tbody>
                 </table>
             </div>

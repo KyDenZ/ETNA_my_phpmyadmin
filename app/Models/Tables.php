@@ -69,12 +69,9 @@ class Tables
     {
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
-        $requete = $pdo->prepare('ALTER TABLE ' . $this->fields[0]->bdTable . ' CHANGE ' . $this->fields[0]->name . ' ' . $this->fields[0]->name . ' ' . $this->fields[0]->type . ' ' . $this->fields[0]->null . ';');
+        $requete = $pdo->prepare('ALTER TABLE '.$this->fields[0]->bdTable.' ADD '.$this->fields[0]->name.' '.$this->fields[0]->type.'('.$this->fields[0]->valeurDefault.') '. $this->fields[0]->null.';');
+        var_dump($this->fields[0]->valeurDefault);
         var_dump($requete);
         $requete->execute();
     }
-
-    // array(0) { } array(1) { [0]=> object(Models\Fields)#18 (6) { ["name"]=> string(3) "nom" ["bdname"]=> string(13) "my_phpmyadmin" ["bdTable"]=> string(5) "table" ["type"]=> string(3) "INT" ["valeurDefault"]=> string(18) "valeur par défaut" ["null"]=> string(8) "NOT NULL" } }
-
-
 }
