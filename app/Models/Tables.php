@@ -69,11 +69,6 @@ class Tables
     {
         $pdo = Bdd::getInstance();
         $pdo->exec("USE " . $this->bdname);
-        if ($this->fields[0]->type == "LONGTEXT")
-        $requete = $pdo->prepare('ALTER TABLE '.$this->fields[0]->bdTable.' ADD '.$this->fields[0]->name.' '.$this->fields[0]->type.' '.$this->fields[0]->null.' ;');
-        if ($this->fields[0]->type == "LONGTEXT" && ($this->fields[0]->null == "on" || $this->fields[0]->null == "YES"))
-        $requete = $pdo->prepare('ALTER TABLE '.$this->fields[0]->bdTable.' ADD '.$this->fields[0]->name.' '.$this->fields[0]->type.' NULL DEFAULT '.$this->fields[0]->valeurDefault.';');
-        else
         $requete = $pdo->prepare('ALTER TABLE '.$this->fields[0]->bdTable.' ADD '.$this->fields[0]->name.' '.$this->fields[0]->type.'('.$this->fields[0]->valeurDefault.') '. $this->fields[0]->null.';');
         var_dump($this->fields[0]->valeurDefault);
         var_dump($requete);
