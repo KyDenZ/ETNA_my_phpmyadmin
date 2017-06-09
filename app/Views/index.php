@@ -84,12 +84,10 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Créer une nouvelle base de données</h4>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="nameBdd" placeholder="NEW BDD">
+                <div class="content">
+                        <div class="form-group text-center">
+                            <input type="text" class="form-control" style="width:70%;margin:auto;margin-top:20px;" name="nameBdd" placeholder="NEW BDD">
                         </div>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success" name="newbdd-submit" value="createDatabase">Créer

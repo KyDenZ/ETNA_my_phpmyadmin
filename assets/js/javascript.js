@@ -99,7 +99,7 @@ function valideField() {
                 dataType: "json",
                 data: data,
                 success: function(data) {
-                    $(this).closest("tr").find("td").data("id") = "ok"
+                    $(this).closest("tr").find('td:eq(1) p').html()
                 },
                 error: function() {
                     console.log("error");
@@ -107,4 +107,24 @@ function valideField() {
             });
         }
     });
+}
+
+function sqlRequest() {
+    var sql = $("#requestSQL").val();
+    console.log(sql);
+    if (sql) {
+        $.ajax({
+            url: BASE_URL + "/sql",
+            timeout: 4000,
+            type: "POST",
+            dataType: "json",
+            data: { "requestSQL": sql },
+            success: function(data) {
+                $("#rslt-sql").html(data);
+            },
+            error: function() {
+                console.log("error");
+            }
+        });
+    }
 }
